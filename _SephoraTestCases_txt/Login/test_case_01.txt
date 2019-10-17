@@ -1,3 +1,4 @@
 Go to sephora.com
 Click "Sign In" link
 Check if radio button "Yes, I have a password" is selected by default
+Testing 123
