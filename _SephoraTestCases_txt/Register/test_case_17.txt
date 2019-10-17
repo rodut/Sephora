@@ -1,0 +1,6 @@
+Go to sephora.com
+Click on "Register" link
+Enter the data in all the mandatory fields
+Click on "Yes, join Sephora's free..." checkbox
+Click "REGISTER" button
+Check if there is an error message "Please select your birth date"

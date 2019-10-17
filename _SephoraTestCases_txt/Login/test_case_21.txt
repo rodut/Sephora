@@ -1,0 +1,6 @@
+1. Go to sephora.com
+2. Click "Sign In" link 
+3. Click "Forgot?" link
+4. Enter an invalid email
+5. Click "Send Email" button
+6. Check if there is an error message regarding the email

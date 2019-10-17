@@ -1,0 +1,3 @@
+Go to sephora
+Click on "Register" link
+Verify if all the required/mandatory fields are marked with * 

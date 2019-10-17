@@ -1,0 +1,4 @@
+Go to sephora.com
+In the search bar type "shaving" and hit enter
+Click on any category name, ex. "Skincare (16)"
+Check to see if the number next to the category matches the number of products displayed (16)

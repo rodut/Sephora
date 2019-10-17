@@ -1,0 +1,4 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click on "Register" link
+Compete the all mandatory fields
+Verify that clicking on "Continue" button after entering all the mandatory fields, submits the data to the server

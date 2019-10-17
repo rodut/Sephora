@@ -1,0 +1,12 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click on "My Account" link
+Click on "Login" link
+Enter an existing email address
+Enter an existing password
+Click "Login" button
+Go to main page
+Randomly select a product and click "Add to cart" button
+Click on "Shopping Cart" link
+Verify if selected product is in "Shopping Cart"
+Click on "Remove" button
+Verify if the product was deleted

@@ -1,0 +1,5 @@
+Go to sephora.com
+Click on 'Sign In'
+Check if 'Continue' button is present
+Check if 'Terms of Use' link is present
+Check if 'Privacy Policy' link is present

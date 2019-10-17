@@ -1,0 +1,5 @@
+Go to sephora.com
+Click on 'Sign In'
+Check if email field is present
+Check if 'Yes, I have a password' radio button is present
+Check if 'No, I am new to the website' radio button is present

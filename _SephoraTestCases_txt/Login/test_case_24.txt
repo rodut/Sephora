@@ -1,0 +1,4 @@
+1. Go to sephora.com
+2. Click "Sign In" link
+3. Click the "X" in the right up corner
+4. Check if user returns to main page

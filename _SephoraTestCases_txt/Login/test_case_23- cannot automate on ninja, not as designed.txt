@@ -1,0 +1,5 @@
+1. Go to sephora.com
+2. Click "Sign In" link
+3. Enter a valid email
+4. Enter a password exceeding 12 elements
+5. Check if an error message is displayed

@@ -1,0 +1,3 @@
+Go to sephora.com
+Click on "Register" link
+Verify that the password is in encrypted form when entered

@@ -1,0 +1,13 @@
+Target: Check if password is not copied, if copied => error
+
+Steps:
+Go to http://tutorialsninja.com/demo/index.php?route=account/login
+Click "My Account" link
+Click "Login" link
+Enter valid email
+Enter valid password
+Copy password (ctrl+c)
+Delete password
+Paste password (ctrl+v)
+Click "Login" button
+An warning should apear: "No match for E-Mail Address and/or Password."

@@ -1,0 +1,5 @@
+Go to sephora.com
+Mouseover "GIFTS" dropdown box
+Click on "View All Gifts"
+In "Filter by:" select "CLINIQUE" checkbox
+Verify if all the products names matches the selected "CLINIQUE" checkbox

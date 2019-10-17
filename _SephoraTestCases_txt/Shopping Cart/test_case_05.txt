@@ -1,0 +1,13 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click on "My Account" link
+Click on "Login" link
+Enter an existing email address
+Enter an existing password
+Click "Login" button
+Go to main page
+Randomly select a product and click "Add to Wish List" button
+Click on "Wish List" link
+Verify if the selected product is in "Wish List"
+Click on "Add to Cart" button
+Click On "Shopping Cart" link
+Verify if the product was moved to "Shoppin Cart"

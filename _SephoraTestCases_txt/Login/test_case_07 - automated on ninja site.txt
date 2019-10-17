@@ -1,0 +1,7 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click on "My Account" link
+Click on "Login" link
+Enter a valid email in email field
+Enter a invalid password in password field
+Click on "Login" button
+Verify if user cannot login with valid email/pass

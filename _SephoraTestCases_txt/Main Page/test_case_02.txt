@@ -1,0 +1,3 @@
+Go to sephora.com
+Click "Reorder" link
+Check if page changed to "Purchases"

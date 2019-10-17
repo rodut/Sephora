@@ -1,0 +1,7 @@
+Go to http://tutorialsninja.com/demo/index.php?route=account/login
+Click "My Account" link
+Click "Login" link
+Click "Forgotten Password" link
+Enter a valid email 
+Click "Continue" button
+Check if aconfirmation message appeared

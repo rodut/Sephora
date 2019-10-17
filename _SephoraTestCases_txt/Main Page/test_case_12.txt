@@ -1,0 +1,9 @@
+Go to sephora.com
+Click on "Affiliates" link (bottom of the page)
+Verify if the right page opened
+Click back button (on browser)
+Click on "Supply Chain Transparency" link (bottom of the page)
+Verify if the right page opened
+Click back button (on browser)
+Click on "Sitemap" link (bottom of the page)
+Verify if the right page opened

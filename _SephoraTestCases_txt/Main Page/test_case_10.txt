@@ -1,0 +1,3 @@
+Go to sephora.com
+Click on "We Belong to Something Beautiful" element
+Verify if the right page opened

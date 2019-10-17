@@ -1,0 +1,4 @@
+Go to sephora.com
+Click on "Register" link
+Complete the all mandatory fields
+Verify that clicking on "REGISTER" button by leaving optional fields, submits the data to the server without any validation error

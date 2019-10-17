@@ -1,0 +1,68 @@
+import unittest
+import HtmlTestRunner
+from PageObjects.MainPage import MainPage
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import sys
+sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
+
+__author__ = "Tudor C"
+__email__ = "tudorache@gmail.com"
+
+
+class MainPageTest12(unittest.TestCase):
+    driver = webdriver.Chrome()
+
+    @classmethod
+    def setUpClass(cls):
+        main = MainPage(cls.driver)
+        cls.driver.maximize_window()
+        cls.driver.get(main.url)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
+
+    def test_mainpage_12(self):
+        wait = WebDriverWait(self.driver, 10)
+        main = MainPage(self.driver)
+
+        main.click_close_x_icon()
+
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.affiliates_link)))
+        element.click()
+        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_affiliates)))
+        if len(element) > 0:
+            print("OK. 'Affiliates' page was opened.")
+        else:
+            sys.exit("ERROR. 'Affiliates' page wasn't opened.")
+
+        # Click back button on browser
+        main.browser_back_button()
+
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.supply_chain_link)))
+        element.click()
+        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_supply_chain)))
+        if len(element) > 0:
+            print("OK. 'Supply Chain Transparency' page was opened.")
+        else:
+            sys.exit("ERROR. 'Supply Chain Transparency' page wasn't opened.")
+
+        # Click back button on browser
+        main.browser_back_button()
+
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.sitemap_link)))
+        element.click()
+        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_sitemap)))
+        if len(element) > 0:
+            print("OK. 'Sitemap' page was opened.")
+        else:
+            sys.exit("ERROR. 'Sitemap' page wasn't opened.")
+
+
+if __name__ == "__main__":
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
+        output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
+        report_name="MainPageTest12"))

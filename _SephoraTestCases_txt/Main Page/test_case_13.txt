@@ -1,0 +1,6 @@
+Go to sephora.com
+Click on "Sephora Global Sites" link (bottom of the page)
+Verify if the right page opened
+Click back button (on browser)
+Click on "Sephoria" link (bottom of the page)
+Verify if the right page opened

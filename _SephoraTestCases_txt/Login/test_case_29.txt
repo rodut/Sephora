@@ -1,0 +1,6 @@
+1. Go to sephora.com
+2. Click "Sign In" link
+3. Click "Terms of Use" link
+4. Check if "Terms of Use" page has oppened, if no => error
+5. Click "X" in the right top corner
+6. Check if user returned to "Sign In" page

@@ -1,0 +1,5 @@
+Go to sephora.com
+In the search bar type "perfume" than hit enter
+Verify if all the products on the first page of the search result are "perfume"
+
+P.S. xpath = //*[@class='css-ix8km1'] (sint 60)

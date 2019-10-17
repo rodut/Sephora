@@ -1,0 +1,8 @@
+Go to sephora.com
+Click on "Register" link
+Enter "           " in the "First name" field
+Enter "           " in the "Last name" field
+Enter "           " in the "Email address" field
+Enter "           " in the "Password" field
+Click on "REGISTER" button
+Verify that entering blank spaces on mandatory fields lead to validation error message

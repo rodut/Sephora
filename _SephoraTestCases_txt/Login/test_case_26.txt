@@ -1,0 +1,4 @@
+1. Go to sephora.com
+2. Click "Sign In" link
+3. Select "No, I am new to the website" radio button
+4. Check if password field disappeared, if it's present => error

@@ -1,0 +1,10 @@
+Go to http://tutorialsninja.com/demo/index.php?route=account/login
+Click "My Account" link
+Click "Login" link
+Enter valid email
+Enter valid password
+Click "Login" button
+Click "Back Arrow" button 2 times(browser)
+Click "My Account" link
+Click "Login" link
+Check if user is logged in, if not -> error (check if Logout link is present)

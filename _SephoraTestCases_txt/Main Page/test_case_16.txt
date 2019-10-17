@@ -1,0 +1,6 @@
+Go to sephora.com
+Click on "Terms of Use" (bottom of the page)
+Verify if the right page opened
+Click back button (on browser)
+Click on "Privacy Policy"
+Verify if the right page opened

@@ -1,0 +1,14 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click on "My Account" link
+Click on "Login" link
+Enter a valid email address
+Enter a valid password
+Click on "Login" button
+Click on "Edit Account" link
+Enter more than 32 characters in "First Name" field
+Enter more than 32 characters in "Last Name" field
+Enter an invalid email in "E-Mail" field
+Enter more than 32 characters in "Telephone" field
+Verify if error messages are present for every field
+
+P.S. Similar to TC_05

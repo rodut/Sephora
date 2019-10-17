@@ -1,0 +1,5 @@
+Go to sephora.com
+Mouseover "GIFTS" dropdown box
+Click on "Brands A-Z"
+click on brand name "Dior"
+Verify if only "Dior" products are displayed

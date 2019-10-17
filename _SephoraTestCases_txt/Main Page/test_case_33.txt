@@ -1,0 +1,3 @@
+Go to sephora.com
+Click on "NEW" dropdown box
+Check if all displayed products have "NEW" in the top left corner

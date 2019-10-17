@@ -1,0 +1,6 @@
+Go to http://tutorialsninja.com/demo/index.php?route=account/login
+Click "My Account" link
+Click "Login" link
+Enter valid email
+Enter the old password
+Check if user is not login, if user logged in => error

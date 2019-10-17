@@ -1,0 +1,4 @@
+Go to sephora.com
+In the search bar type "shaving" and hit enter
+From "Sort by:" select "Price Low to High"
+Verify if all the prices are listed correctly, from low to high

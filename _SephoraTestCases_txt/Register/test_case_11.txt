@@ -1,0 +1,3 @@
+Go to sephora.com
+Click on "Register" link
+Verify if "Subscribe to Sephora emails" checkbox is selected by default

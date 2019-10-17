@@ -1,0 +1,7 @@
+Go to sephora.com
+Mouseover "SHOP" dropdown box
+Click on "FRAGRANCE" link box
+Verify if the right page opened
+Mouseover "SHOP" dropdown box
+Click "BATH & BODY" link box
+Verify if the right page opened

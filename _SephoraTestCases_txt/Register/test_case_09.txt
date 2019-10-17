@@ -1,0 +1,7 @@
+Go to sephora.com
+Click on "Register" link
+Enter a valid password
+Click on "eye" icon
+Verify if clicking on "eye" icon will show the password
+Click on "eye" icon the second time
+Verify is clicking the second time will hide the password

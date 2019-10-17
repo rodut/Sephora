@@ -1,0 +1,7 @@
+1. Go to sephora.com
+2. Click "Sign In" link 
+3. Enter valid email
+4. Click "Forgot?" link
+5. Check if the entered email is present in email field
+6. Click "Send Email" button
+7. Check if a message with "reset password" is present

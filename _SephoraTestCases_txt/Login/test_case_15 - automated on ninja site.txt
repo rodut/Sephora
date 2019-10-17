@@ -1,0 +1,17 @@
+Go to http://tutorialsninja.com/demo/index.php?route=account/login
+Click "My Account" link
+Click "Login" link
+Enter valid email
+Enter valid password
+Click "Login" button
+Click "Password" link
+Enter new password
+Confirm new password
+Click "Continue" button
+Click "My Account" link
+Click "Logout" link
+Click "My Account" link
+Click "Login" link
+Enter valid email
+Enter the new password
+Check if user signed in with the new password, if not => error

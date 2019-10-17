@@ -1,0 +1,6 @@
+Go to sephora.com
+Click on instagram icon (bottom of the page)
+Check if the sefora's instagram page opened
+Click back button (on browser)
+Click on youtube icon (bottom of the page)
+Check if the sefora's youtube page opened

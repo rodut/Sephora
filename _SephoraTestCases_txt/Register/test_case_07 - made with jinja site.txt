@@ -1,0 +1,11 @@
+Go to sephora.com
+Click on "Register" link
+In "First name" field enter an existing First name
+In "Last name" field enter an existing Last name
+In "Email address" field enter a valid email address
+In "Telephone" field enter a valid telephone
+In "Password" field enter a valid password
+In "Password Confirm" field repeat the password
+Check "Privacy Policy" checkbox
+Click "Continue" button
+Verify that system generates a validation error message when entering existing email

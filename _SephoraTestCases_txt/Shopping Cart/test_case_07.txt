@@ -1,0 +1,5 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Add to cart a random item
+Click on black button (right up corner)
+Click on "Remove" button
+Verify if the item was removed

@@ -1,0 +1,15 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click on "My Account" link
+Click on "Login" link
+Enter a valid email address
+Enter a valid password
+Click on "Login" button
+Click on "Edit Account" link
+Enter new "First Name"
+Enter new "Last Name"
+Enter new "E-Mail"
+Enter new "Tepehone"
+Click on "Continue" button
+Verify if all the field changed with new data
+
+P.S. After all the checking, change email to "jacknicholson@gmail.com" to avoid errors in the next test case

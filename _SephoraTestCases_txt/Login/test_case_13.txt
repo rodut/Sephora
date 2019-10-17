@@ -1,0 +1,5 @@
+1. Go to sephora.com
+2. Click "Sign In" link
+3. Enter valid email
+4. Enter valid password
+5. Verify if the password is in encrypted form, of no => error

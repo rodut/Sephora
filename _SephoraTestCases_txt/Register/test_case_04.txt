@@ -1,0 +1,3 @@
+Go to sephora.com
+Click "Register" link
+Verify that system generates an error message when clicking on "REGISTER" button without filling all the mandatory fields

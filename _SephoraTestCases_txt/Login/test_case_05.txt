@@ -1,0 +1,5 @@
+Go to sephora.com
+Click on 'Sign In'
+Check if 'What is your email address' text is present
+Check if 'Do you have a sephora.com password?' text is present
+Check if 'Have a Beauty Insider account?' text is present

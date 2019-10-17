@@ -1,0 +1,6 @@
+Go to sephora.com
+In the search bar type "shaving" and hit enter
+Adjust "Price Range" from $50 to $150
+Verify if user can view only the products with the price between $50 and $150
+Click on "Reset all filters"
+Verify if user can view all the products with price between 50-150 and other

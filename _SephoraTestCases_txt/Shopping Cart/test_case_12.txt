@@ -1,0 +1,13 @@
+Almost the same as tc_06
+
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Add to cart a random item
+Click on "Shopping Cart" link
+Verify if the product is present
+Click "Checkout" button
+Verify if the site is asking you to login
+Enter a valid email address
+Enter a valid password
+Click "Login" button
+Click "Shopping Cart" link
+Verify if the product was added to the shopping cart

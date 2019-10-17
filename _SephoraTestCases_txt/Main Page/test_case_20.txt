@@ -1,0 +1,7 @@
+Go to sephora.com
+Mouseover "SHOP" dropdown box
+Click on "GIFTS" link box
+Verify if the right page opened
+Mouseover "SHOP" dropdown box
+Click "SALE" link box
+Verify if the right page opened

@@ -1,0 +1,9 @@
+Go to sephora.com
+Click on "About Sephora" link (bottom of the page)
+Verify if the right page opened
+Click back button (on browser)
+Click on "Careers" link (bottom of the page)
+Verify if the right page opened
+Click back button (on browser)
+Click on "Sephora Stands Social Impact" link (bottom of the page)
+Verify if the right page opened

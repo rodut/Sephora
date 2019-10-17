@@ -1,0 +1,9 @@
+Go to http://tutorialsninja.com/demo/index.php?route=account/login
+Click "My Account" link
+Click "Login" link
+Enter valid email
+Enter valid password
+Click "Login" button
+Click "My Account" link
+Click "Logout" link
+Check if user was signed out, if not => error

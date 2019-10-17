@@ -1,0 +1,4 @@
+Go to sephora.com
+In the search bar type "shaving" and hit enter
+Click "Sort by:" and select "Brand Name"
+Verify if all the brands are arranged in alphabetical order

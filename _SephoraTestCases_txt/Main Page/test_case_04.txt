@@ -1,0 +1,3 @@
+Go to sephora.com
+Click on "Find a Store" link
+Check if page changed to "Find a Sephora"

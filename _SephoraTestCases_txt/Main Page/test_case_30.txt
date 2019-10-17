@@ -1,0 +1,4 @@
+Go to sephora.com
+Mouseover "GIFTS" dropdown box
+Select "$10 and Under"
+Verify if all products are under or equal to $10

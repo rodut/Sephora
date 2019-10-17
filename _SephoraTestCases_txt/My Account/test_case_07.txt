@@ -1,0 +1,11 @@
+Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click on "My Account" link
+Click on "Login" link
+Enter a valid email address
+Enter a valid password
+Click on "Login" button
+Click on "Address Book" link
+Click on "New Address" button
+Complete all the mandatory fields
+click on "Continue" button
+Verify if the new address was added

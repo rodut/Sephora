@@ -1,0 +1,5 @@
+Go to sephora.com
+Click on 'Sign In'
+Check if 'Password' field is present
+Check if 'Forgot?' link is present
+Check if 'Cancel' button is present
