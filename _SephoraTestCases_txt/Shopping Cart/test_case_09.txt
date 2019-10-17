@@ -6,7 +6,7 @@ Enter an existing password
 Click "Login" button
 Go to main page
 Randomly select a product and add it to Shopping Cart
-Click on "Shoping Cart" link
-Chenge the quantity from 1 to 5
+Click on "Shopping Cart" link
+Change the quantity from 1 to 5
 Click on "Update" button
 Verify is total sum is correct
