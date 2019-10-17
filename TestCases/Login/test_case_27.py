@@ -28,15 +28,25 @@ class LoginTest27(unittest.TestCase):
 
     def test_login_27(self):
         login = Login(self.driver)
+
+        # Click "Sign In" link
         login.close_icon()
         login.click_signin()
+
+        # Select "No, I am new to the website" radio button
         login.click_new_to_site()
+
+        # Check if password field disappeared, if it's present => error
         element = self.driver.find_elements_by_xpath(Login.password_field)
         if len(element) > 0:
             sys.exit("ERROR. The password field didn't disappear.")
         else:
             print("OK. The password field disappeared.")
+
+        # Select "Yes, I have a password"
         login.click_new_to_site()
+
+        # Check if password field reappeared, if not =? error
         element = self.driver.find_elements_by_xpath(Login.password_field)
         if len(element) > 0:
             print("OK. The password field reappeared.")

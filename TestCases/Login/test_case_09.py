@@ -27,11 +27,21 @@ class LoginTest09(unittest.TestCase):
 
     def test_login_09(self):
         login = Login(self.driver)
+
+        # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
+
+        # Enter a valid email in email field
         login.set_email_address(self.email_address)
+
+        # Enter an empty passord in password field
         login.set_password(self.password)
+
+        # Click on "Continue" button
         login.click_continue()
+
+        # Verify if user cannot login with empty password
         element = self.driver.find_elements_by_xpath(Login.alert_pass_missing)
         if len(element) > 0:
             print("OK. Missing password error text is present.")

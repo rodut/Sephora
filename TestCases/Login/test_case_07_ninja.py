@@ -18,8 +18,7 @@ class LoginTest07Ninja(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         reg = LoginNinja(cls.driver)
-        cls.url = reg.url
-        cls.driver.get(cls.url)
+        cls.driver.get(reg.url)
         cls.driver.maximize_window()
 
     @classmethod
@@ -28,11 +27,23 @@ class LoginTest07Ninja(unittest.TestCase):
 
     def test_login_07_ninja(self):
         login = LoginNinja(self.driver)
+
+        # Click on "My Account" link
         login.click_my_account_link()
+
+        # Click on "Login" link
         login.click_login_link()
+
+        # Enter a valid email in email field
         login.set_email(self.email)
+
+        # Enter a invalid password in password field
         login.set_password(self.password)
+
+        # Click on "Login" button
         login.click_login_button()
+
+        # Verify if user cannot login with valid email/pass
         element = self.driver.find_element_by_xpath(LoginNinja.warning_message).is_displayed()
         if element:
             print("OK. User cannot login with invalid password.")

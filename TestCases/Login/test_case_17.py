@@ -28,12 +28,22 @@ class LoginTest17(unittest.TestCase):
 
     def test_login_17(self):
         login = Login(self.driver)
+
+        # Click "Sign In" link
         login.close_icon()
         login.click_signin()
+
+        # Enter valid email
         login.set_email_address(self.email_address)
+
+        # Select "No, I am new to the website" radio button
         login.click_new_to_site()
+
+        # Click "Continue" button
         login.click_continue()
         time.sleep(1)
+
+        # Check if an error message appears, if no => error
         element = self.driver.find_elements_by_xpath(Login.alert_incorrect_pass)
         if len(element) > 0:
             print("OK. 'An account already exists' alert message appears.")

@@ -4,7 +4,7 @@ Click "Login" link
 Enter valid email
 Enter valid password
 Click "Login" button
-Click "Back Arrow" button 2 times(browser)
+Click "Back Arrow" on browser button (2 times)
 Click "My Account" link
 Click "Login" link
 Check if user is logged in, if not -> error (check if Logout link is present)

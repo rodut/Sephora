@@ -25,18 +25,26 @@ class LoginTest04(unittest.TestCase):
 
     def test_login_04(self):
         login = Login(self.driver)
+
+        # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
+
+        # Verifying if 'Continue' button is present.
         element = self.driver.find_elements_by_xpath(Login.continue_button)
         if len(element) > 0:
             print("OK. 'Continue' button is present.")
         else:
             sys.exit("ERROR. 'Continue' button is not present.")
+
+        # Verifying if 'Terms of Use' link is present.
         element = self.driver.find_elements_by_xpath(Login.terms_of_use_link)
         if len(element) > 0:
             print("OK. 'Terms of Use' link is present.")
         else:
             sys.exit("ERROR. 'Terms of Use' link is not present.")
+
+        # Verifying if 'Privacy Policy' link is present.
         element = self.driver.find_elements_by_xpath(Login.privacy_policy_link)
         if len(element) > 0:
             print("OK. 'Privacy Policy' link is present.")

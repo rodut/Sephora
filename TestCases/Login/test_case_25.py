@@ -28,9 +28,15 @@ class LoginTest25(unittest.TestCase):
 
     def test_login_25(self):
         login = Login(self.driver)
+
+        # Click "Sign In" link
         login.close_icon()
         login.click_signin()
+
+        # Click "Cancel" button
         login.click_cancel_button()
+
+        # Check if user returns to main page
         element = self.driver.find_elements_by_xpath(Login.check_please_signin)
         if len(element) > 0:
             sys.exit("ERROR. User didn't return to the main page.")

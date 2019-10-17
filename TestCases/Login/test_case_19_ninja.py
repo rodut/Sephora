@@ -28,13 +28,29 @@ class LoginTest19Ninja(unittest.TestCase):
 
     def test_login_19_ninja(self):
         login = LoginNinja(self.driver)
+
+        # Click "My Account" link
         login.click_my_account_link()
+
+        # Click "Login" link
         login.click_login_link()
+
+        # Enter valid email
         login.set_email(self.email_address)
+
+        # Enter valid password
         login.set_password(self.password)
+
+        # Click "Login" button
         login.click_login_button()
+
+        # Click "My Account" link
         login.click_my_account_link()
+
+        # Click "Logout" link
         login.click_logout()
+
+        # Check if user was signed out, if not => error
         element = self.driver.find_element_by_xpath(LoginNinja.check_sign_out).is_displayed()
         if element:
             print("OK. The user successfully signed out.")

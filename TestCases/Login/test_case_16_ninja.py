@@ -13,7 +13,7 @@ __email__  = "tudorache@gmail.com"
 class LoginTest16Ninja(unittest.TestCase):
     driver = webdriver.Chrome()
     email_address = "jacknicholson@gmail.com"
-    password = "123456789"
+    password = "1234567890"
 
     @classmethod
     def setUpClass(cls):
@@ -28,11 +28,23 @@ class LoginTest16Ninja(unittest.TestCase):
 
     def test_login_16_ninja(self):
         login = LoginNinja(self.driver)
+
+        # Click "My Account" link
         login.click_my_account_link()
+
+        # Click "Login" link
         login.click_login_link()
+
+        # Enter valid email
         login.set_email(self.email_address)
+
+        # Enter the old password
         login.set_password(self.password)
+
+        # Click "Continue" button
         login.click_login_button()
+
+        # Check if user is not login, if user logged in => error
         element = self.driver.find_element_by_xpath(LoginNinja.warning_message).is_displayed()
         if element:
             print("OK. User cannot login with the old password.")

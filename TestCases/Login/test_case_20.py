@@ -27,17 +27,29 @@ class LoginTest20(unittest.TestCase):
 
     def test_login_20(self):
         login = Login(self.driver)
+
+        # Click "Sign In" link
         login.close_icon()
         login.click_signin()
+
+        # Enter valid email
         login.set_email_address(self.email_address)
+
+        # Click "Forgot?" link
         login.click_forgot_link()
         time.sleep(1)
+
+        # Check if the entered email is present in email field
         element = self.driver.find_elements_by_xpath(Login.check_forgot_email)
         if len(element) > 0:
             print("OK. Previously entered email is present in email field.")
         else:
             sys.exit("ERROR. Previously entered email is not present in email field.")
+
+        # Click "Send Email" button
         login.click_send_email_button()
+
+        # Check if a message with "reset password" is present
         element = self.driver.find_elements_by_xpath(Login.reset_password)
         if len(element) > 0:
             print("OK. A message with 'Reset Password' is present")

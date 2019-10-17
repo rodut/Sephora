@@ -1,6 +1,6 @@
-1. Go to sephora.com
-2. Click "Sign In" link
-3. Enter an unregistered email
-4. Select "No, I am new to the website"
-5. Click "Continue" button
-6. Check if a registration form appeared, if no => error
+Go to sephora.com
+Click "Sign In" link
+Enter an unregistered email
+Select "No, I am new to the website"
+Click "Continue" button
+Check if a registration form appeared, if no => error

@@ -27,11 +27,23 @@ class LoginTest22Ninja(unittest.TestCase):
 
     def test_login_22_ninja(self):
         login = LoginNinja(self.driver)
+
+        # Click "My Account" link
         login.click_my_account_link()
+
+        # Click "Login" link
         login.click_login_link()
+
+        # Click "Forgotten Password" link
         login.click_forgotten_password_link()
+
+        # Enter a valid email
         login.set_email(self.email_address)
+
+        # Click "Continue" button
         login.click_login_button()
+
+        # Check if a confirmation message appeared
         element = self.driver.find_element_by_xpath(LoginNinja.confirm_message).is_displayed()
         if element:
             print("OK. An email with a confirmation link has been sent to the user's email address.")

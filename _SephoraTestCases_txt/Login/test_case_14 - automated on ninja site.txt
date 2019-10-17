@@ -10,4 +10,4 @@ Copy password (ctrl+c)
 Delete password
 Paste password (ctrl+v)
 Click "Login" button
-An warning should apear: "No match for E-Mail Address and/or Password."
+An warning should appear: "No match for E-Mail Address and/or Password."

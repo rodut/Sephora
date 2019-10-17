@@ -25,9 +25,11 @@ class LoginTest01(unittest.TestCase):
 
     def test_login_00(self):
         login = Login(self.driver)
+
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
+
         # Verifying if the link "Sign In" was opened
         element = self.driver.find_elements_by_xpath(Login.yes_pass_selected)
         if len(element) > 0:

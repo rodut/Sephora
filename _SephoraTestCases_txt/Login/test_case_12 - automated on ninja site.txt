@@ -8,4 +8,4 @@ Click "My Account" link
 Click "Logout" link
 Click "Back Arrow" button (browser)
 Click "Edit Account" link
-Verify if user is logget out (must be logged out, else => error)
+Verify if user is logged out (must be logged out, else => error)

@@ -28,17 +28,27 @@ class LoginTest29(unittest.TestCase):
 
     def test_login_29(self):
         login = Login(self.driver)
+
+        # Click "Sign In" link
         login.close_icon()
         login.click_signin()
         time.sleep(2)
+
+        # 3. Click "Terms of Use" link
         login.click_terms_of_use()
         time.sleep(2)
+
+        # Check if "Terms of Use" page has opened, if no => error
         element = self.driver.find_elements_by_xpath(Login.check_terms_of_use)
         if len(element) > 0:
             print("OK. The user can see Terms of Use.")
         else:
             sys.exit("ERROR.  The user cannot see Terms of Use.")
+
+        # Click "X" in the right top corner
         login.click_close_terns_of_use()
+
+        # Check if user returned to "Sign In" page
         element = self.driver.find_elements_by_xpath(Login.check_please_signin)
         if len(element) > 0:
             print("OK. User returned to Sign In page.")
