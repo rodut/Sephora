@@ -1,6 +1,6 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium import webdriver
 from PageObjects.MainPage import MainPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,23 +13,27 @@ __email__ = "tudorache@gmail.com"
 
 
 class MainPageTest03(unittest.TestCase):
+    driver = webdriver.Chrome()
+
     @classmethod
     def setUpClass(cls):
-        cls.driver = MainPage.browser
         main = MainPage(cls.driver)
         cls.driver.maximize_window()
         cls.driver.get(main.url)
 
     @classmethod
     def tearDownClass(cls):
-        cls.driver = MainPage.browser
         cls.driver.quit()
 
     def test_mainpage_03(self):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
+
+        # Click "Track Order" link
         main.click_close_x_icon()
         main.click_track_order_link()
+
+        # Check if page changed to "ORDER STATUS & HISTORY", if no => ERROR
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_track_order)))
         if element:
             print("OK. Page changed to 'ORDER STATUS & HISTORY'.")

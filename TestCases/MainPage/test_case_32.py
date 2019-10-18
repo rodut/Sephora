@@ -29,13 +29,22 @@ class MainPageTest32(unittest.TestCase):
         main = MainPage(self.driver)
         main.click_close_x_icon()
 
+        # Mouseover "GIFTS" dropdown box
         gifts = self.driver.find_element_by_xpath(MainPage.mouseover_gifts)
         gifts.click()
+
+        # Click on "View All Gifts"
         view_all_gifts = self.driver.find_element_by_xpath(MainPage.view_all_gifts)
         view_all_gifts.click()
+
+        # In "Filter by:" select "CLINIQUE" checkbox
         checkbox = self.driver.find_element_by_xpath(MainPage.clinique_checkbox)
         ActionChains(self.driver).click(checkbox).perform()
+
+        # Scroll down to the bottom of the page
         main.scroll_bottom_page()
+
+        # Verify if all the products names matches the selected "CLINIQUE" checkbox
         element = self.driver.find_element_by_xpath(MainPage.verify_clinique)
         if element.text == "CLINIQUE":
             print("OK. All products displayed are Clinique's.")

@@ -1,4 +1,4 @@
 Go to sephora.com
 In the search bar type "shaving" and hit enter
 In the bottom of the page select page 2
-Check if the number next to "Product results: “shaving”" matches to the number of products displayed on the both pages
+Check if the number next to "Product results: 'shaving'" matches to the number of products displayed on the both pages

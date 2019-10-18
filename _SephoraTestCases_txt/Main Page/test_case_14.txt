@@ -1,6 +1,6 @@
 Go to sephora.com
 Click on facebook icon (bottom of the page)
-Check if the sefora's facebook page opened
+Check if the Sefora's facebook page was opened
 Click back button (on browser)
 Click on twitter icon (bottom of the page)
-Check if the sefora's twitter page opened
+Check if the Sefora's twitter page opened

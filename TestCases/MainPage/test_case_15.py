@@ -30,8 +30,11 @@ class MainPageTest15(unittest.TestCase):
         main = MainPage(self.driver)
         main.click_close_x_icon()
 
+        # Click on instagram icon (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.instagram_icon)))
         element.click()
+
+        # Check if the Sefora's instagram page was opened
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_instagram)))
         if len(element) > 0:
             print("OK. Sephora's Instagram page was opened.")
@@ -41,8 +44,11 @@ class MainPageTest15(unittest.TestCase):
         # Click back button on browser
         main.browser_back_button()
 
+        # Click on youtube icon (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.youtube_icon)))
         element.click()
+
+        # Check if the Sefora's youtube page was opened
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_youtube)))
         if len(element) > 0:
             print("OK. Sephoria's Youtube page was opened.")

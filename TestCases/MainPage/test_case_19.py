@@ -27,6 +27,8 @@ class MainPageTest19(unittest.TestCase):
         main = MainPage(self.driver)
         main.click_close_x_icon()
 
+        # Mouseover "SHOP" dropdown box
+        # Click on "FRAGRANCE" link box
         shop = self.driver.find_element_by_xpath(MainPage.mouseover_shop)
         actions = action_chains.ActionChains(self.driver)
         actions.move_to_element(shop).perform()
@@ -34,19 +36,26 @@ class MainPageTest19(unittest.TestCase):
         actions.move_to_element(fragrance).perform()
         fragrance.click()
 #        actions.move_to_element(shop).move_to_element(makeup).click().perform()
+
+        # Verify if the right page opened
         if self.driver.title == "Fragrance | Sephora":
             print("OK. Fragrance page was opened.")
         else:
             sys.exit("ERROR. Fragrance page wasn't opened.")
 
+        # Go back to the main page
         main.click_main_page()
 
+        # Mouseover "SHOP" dropdown box
+        # Click "BATH & BODY" link box
         shop = self.driver.find_element_by_xpath(MainPage.mouseover_shop)
         bath_body = self.driver.find_element_by_xpath(MainPage.bath_body_link)
         actions = action_chains.ActionChains(self.driver)
         actions.move_to_element(shop).perform()
         actions.move_to_element(bath_body).perform()
         bath_body.click()
+
+        # Verify if the right page opened
         if self.driver.title == "Bath Products & Body Products | Sephora":
             print("OK. Bath Products & Body Products page was opened.")
         else:

@@ -1,8 +1,8 @@
 Go to sephora.com
 Mouseover "SHOP" dropdown box
 Click on "MAKEUP" link box
-Verify if the right page opened
+Verify if the right page was opened
 Go back to the main page
 Mouseover "SHOP" dropdown box
 Click "SKINCARE" link box
-Verify if the right page opened
+Verify if the right page was opened

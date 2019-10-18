@@ -29,6 +29,8 @@ class MainPageTest05(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
+
+        # Check if there are 18 products under "Just Arrived", if no => ERROR
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.just_arrived_items)))
         if len(element) == 18:
             print("OK. There are 18 products under 'Just Arrived'.")

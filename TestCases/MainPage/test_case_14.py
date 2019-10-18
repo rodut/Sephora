@@ -30,8 +30,11 @@ class MainPageTest14(unittest.TestCase):
         main = MainPage(self.driver)
         main.click_close_x_icon()
 
+        # Click on facebook icon (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.facebook_icon)))
         element.click()
+
+        # Check if the Sefora's facebook page was opened
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_facebook)))
         if len(element) > 0:
             print("OK. Sephora's Facebook page was opened.")
@@ -41,8 +44,11 @@ class MainPageTest14(unittest.TestCase):
         # Click back button on browser
         main.browser_back_button()
 
+        # Click on twitter icon (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.twitter_icon)))
         element.click()
+
+        # Check if the Sefora's twitter page opened
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_twitter)))
         if len(element) > 0:
             print("OK. Sephoria's Twitter page was opened.")

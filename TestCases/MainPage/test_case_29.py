@@ -30,9 +30,15 @@ class MainPageTest29(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
+
+        # In the search bar type "shaving" and hit enter
         main.set_site_search(self.search_item)
+
+        # Click "Sort by:" and select "Brand Name"
         main.click_dropdown_sort_by()
         main.click_brand_name_link()
+
+        # Verify if all the brands are arranged in alphabetical order
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_brand_name)))
         if element:
             print("OK. Products are sorted by Brand Name.")

@@ -26,10 +26,15 @@ class MainPageTest30(unittest.TestCase):
         main = MainPage(self.driver)
         main.click_close_x_icon()
 
+        # Mouseover "GIFTS" dropdown box
         gifts = self.driver.find_element_by_xpath(MainPage.mouseover_gifts)
         gifts.click()
+
+        # Select "$10 and Under"
         ten_and_under = self.driver.find_element_by_xpath(MainPage.ten_and_under)
         ten_and_under.click()
+
+        # Verify if all products are under or equal to $10
         prices = self.driver.find_elements_by_xpath(MainPage.prices_under_ten)
         for price in prices:
             x = price.text
