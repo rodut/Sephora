@@ -9,4 +9,5 @@ Enter an empty text in "First Name" field
 Enter an empty text in "Last Name" field
 Enter an empty text in "E-Mail" field
 Enter an empty text in "Telephone" field
+Click "Continue" button
 Verify if error messages are present for every field

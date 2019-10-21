@@ -7,5 +7,5 @@ Click on "Login" button
 Click on "Address Book" link
 Click on "New Address" button
 Complete all the mandatory fields
-click on "Continue" button
+Click on "Continue" button
 Verify if the new address was added

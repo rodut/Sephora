@@ -33,18 +33,31 @@ class MyAccountTest06Ninja(unittest.TestCase):
 
     def test_my_account_06_ninja(self):
         myacc = MyAccountNinja(self.driver)
+        # Click on "My Account" link
         myacc.click_my_account_link()
+        # Click on "Login" link
         myacc.click_login_link()
+        # Enter a valid email address
         myacc.set_email(self.email_address)
+        # Enter a valid password
         myacc.set_password(self.password)
+        # Click on "Login" button
         myacc.click_login_button()
+        # Click on "Edit Account" link
         myacc.click_edit_account_link()
+        # Enter new "First Name"
         myacc.set_first_name(self.first_name)
+        # Enter new "Last Name"
         myacc.set_last_name(self.last_name)
+        # Enter new "E-Mail"
         myacc.set_new_email(self.new_email)
+        # Enter new "Telephone"
         myacc.set_telephone(self.telephone)
+        # Click on "Continue" button
         myacc.click_continue_button()
+        # Click "Edit Account"
         myacc.click_edit_account_link()
+        # Verify if all the field changed with new data
         new_first_name = "Jacky"
         new_last_name = "Boy"
         new_email_address = "abracadabra@gmail.com"
@@ -52,6 +65,7 @@ class MyAccountTest06Ninja(unittest.TestCase):
         elem = self.driver.find_element_by_xpath(MyAccountNinja.first_name_field)
         element = elem.get_attribute("value")
         time.sleep(2)
+        #
         if element == new_first_name:
             print("OK. First name has been changed successfully.")
         else:

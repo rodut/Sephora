@@ -4,4 +4,4 @@ Click on "Login" link
 Enter a valid email address
 Enter a valid password
 Click on "Login" button
-Check if the link under "My Affiliate Account" text is working
+Check if the link under "My Affiliate Account" text is displayed

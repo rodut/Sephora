@@ -29,12 +29,23 @@ class MyAccountTest03Ninja(unittest.TestCase):
 
     def test_my_account_03_ninja(self):
         myacc = MyAccountNinja(self.driver)
+
+        # Click on "My Account" link
         myacc.click_my_account_link()
+
+        # Click on "Login" link
         myacc.click_login_link()
+
+        # Enter a valid email address
         myacc.set_email(self.email_address)
+
+        # Enter a valid password
         myacc.set_password(self.password)
+
+        # Click on "Login" button
         myacc.click_login_button()
 
+        # Check if the link under "My Affiliate Account" text is displayed
         element = self.driver.find_element_by_xpath(MyAccountNinja.reg_aff_acc_link).is_displayed()
         if element:
             print("OK. 'Register for an affiliate account' link is displayed.")

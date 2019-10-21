@@ -4,4 +4,4 @@ Click on "Login" link
 Enter a valid email address
 Enter a valid password
 Click on "Login" button
-Check if all links under "My Orders" text are working
+Check if all links under "My Orders" text are displayed

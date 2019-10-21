@@ -8,8 +8,9 @@ Click on "Edit Account" link
 Enter new "First Name"
 Enter new "Last Name"
 Enter new "E-Mail"
-Enter new "Tepehone"
+Enter new "Telephone"
 Click on "Continue" button
+Click "Edit Account"
 Verify if all the field changed with new data
 
-P.S. After all the checking, change email to "jacknicholson@gmail.com" to avoid errors in the next test case
+P.S. After all the checking, change email to "jacknicholson@gmail.com" to avoid errors in the next test cases

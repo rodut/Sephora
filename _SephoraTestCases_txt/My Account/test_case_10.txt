@@ -8,7 +8,7 @@ Click on "Address Book" link
 Click on "New Address" button
 Complete all the mandatory fields
 Select "Yes" at "Default Address"
-click on "Continue" button
+Click on "Continue" button
 Verify if the new address was added
 Click on "Edit" button
 Click on "No" radio button

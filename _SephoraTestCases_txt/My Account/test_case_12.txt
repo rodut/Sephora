@@ -9,6 +9,7 @@ Enter more than 32 characters in "First Name" field
 Enter more than 32 characters in "Last Name" field
 Enter an invalid email in "E-Mail" field
 Enter more than 32 characters in "Telephone" field
+Click "Continue" button
 Verify if error messages are present for every field
 
 P.S. Similar to TC_05
