@@ -10,4 +10,4 @@ Click on "Wish List" link
 Verify if the selected product is in "Wish List"
 Click on "Add to Cart" button
 Click On "Shopping Cart" link
-Verify if the product was moved to "Shoppin Cart"
+Verify if the product was moved to "Shopping Cart"

@@ -28,17 +28,25 @@ class ShoppingCartTest11Ninja(unittest.TestCase):
 
     def test_shopping_cart_11_ninja(self):
         shopcart = ShoppingCartNinja(self.driver)
+        # Click on "My Account" link
         shopcart.click_my_account_link()
+        # Click on "Login" link
         shopcart.click_login_link()
+        # Enter an existing email address
         shopcart.set_email(self.email_address)
+        # Enter an existing password
         shopcart.set_password(self.password)
+        # Click "Login" button
         shopcart.click_login_button()
+        # Click "Shopping Cart" link
         shopcart.click_shopping_cart()
+        # Verify if a coupon code can be used only if a product is added to shopping cart
         element = self.driver.find_elements_by_xpath(ShoppingCartNinja.coupon_code)
         if len(element) > 0:
             sys.exit("ERROR. Coupon code can be used even if a product is not added to shopping cart.")
         else:
             print("OK. Coupon code can be used only if a product is added to shopping cart.")
+        # Verity if a gift certificate can be used only if a product is added to shopping cart
         element = self.driver.find_elements_by_xpath(ShoppingCartNinja.gift_certificate)
         if len(element) > 0:
             sys.exit("ERROR. Gift certificate can be used even if a product is not added to shopping cart.")

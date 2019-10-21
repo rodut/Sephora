@@ -26,12 +26,16 @@ class ShoppingCartTest07Ninja(unittest.TestCase):
 
     def test_shopping_cart_07_ninja(self):
         shopcart = ShoppingCartNinja(self.driver)
+        # Add to cart a random item
         shopcart.click_add_item_1()
         time.sleep(1)
+        # Click on black button (right up corner)
         shopcart.click_black_button_id()
+        # Click on "Remove" button
         shopcart.click_black_button_remove()
         time.sleep(1)
         shopcart.click_black_button_id()
+        # Verify if the item was removed
         element = self.driver.find_element_by_xpath(ShoppingCartNinja.black_button_empty_text).is_displayed()
         if element:
             print("OK. User removed the item from shopping cart successfully.")

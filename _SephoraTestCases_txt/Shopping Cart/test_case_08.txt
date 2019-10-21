@@ -6,5 +6,5 @@ Enter an existing password
 Click "Login" button
 Go to main page
 Randomly select 2 products and add them to Shopping Cart
-Click on "Shoping Cart" link
+Click on "Shopping Cart" link
 Verify is total sum is correct

@@ -29,12 +29,19 @@ class ShoppingCartTest09Ninja(unittest.TestCase):
 
     def test_shopping_cart_09_ninja(self):
         shopcart = ShoppingCartNinja(self.driver)
+        # Click on "My Account" link
         shopcart.click_my_account_link()
+        # Click on "Login" link
         shopcart.click_login_link()
+        # Enter an existing email address
         shopcart.set_email(self.email_address)
+        # Enter an existing password
         shopcart.set_password(self.password)
+        # Click "Login" button
         shopcart.click_login_button()
+        # Go to main page
         shopcart.click_main_page()
+        # Randomly select a product and add it to Shopping Cart
         shopcart.click_add_item_1()
         elem_1 = self.driver.find_elements_by_xpath(ShoppingCartNinja.price_item_1)
         for price in elem_1:
@@ -43,9 +50,13 @@ class ShoppingCartTest09Ninja(unittest.TestCase):
             z = y.replace(".00", "")
             price_1 = int(z)
         new_price = price_1 * 5
+        # Click on "Shopping Cart" link
         shopcart.click_shopping_cart()
+        # Change the quantity from 1 to 5
         shopcart.set_quantity(self.quantity)
+        # Click on "Update" button
         shopcart.click_update_button()
+        # Verify is total sum is correct
         element = self.driver.find_elements_by_xpath(ShoppingCartNinja.total_price)
         for price in element:
             x = price.text
