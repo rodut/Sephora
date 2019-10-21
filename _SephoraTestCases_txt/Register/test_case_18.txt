@@ -1,6 +1,6 @@
 Go to sephora.com
 Click on "Register" link
-Complete all the mandatory fieds
+Complete all the mandatory fields
 Enter a incorrect zip code (ex. AB6585)
 Click "REGISTER" button
 Check if an error message appears

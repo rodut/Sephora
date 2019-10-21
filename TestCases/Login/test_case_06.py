@@ -28,20 +28,15 @@ class LoginTest06(unittest.TestCase):
 
     def test_login_06(self):
         login = Login(self.driver)
-
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
-
         # Enter a invalid email in email field
         login.set_email_address(self.email_address)
-
         # Enter a invalid password in password field
         login.set_password(self.password)
-
         # Click 'Continue' button
         login.click_continue()
-
         # Verify if alert email error text is present.
         element = self.driver.find_elements_by_xpath(Login.alert_incorrect_email)
         if len(element) > 0:

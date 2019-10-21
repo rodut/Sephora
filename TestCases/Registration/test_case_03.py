@@ -27,16 +27,20 @@ class RegisterTest003(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_register_003(self):
+    def test_register_03(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click on "Register" link
         reg.click_register()
+        # Compete the all mandatory fields
         reg.set_first_name(self.first_name)
         reg.set_last_name(self.last_name)
         reg.set_email_address(self.email_address)
         reg.set_password(self.password)
+        # Click "Continue" button
         reg.click_register_button()
         time.sleep(20)
+        # Verify that clicking on "Continue" button after entering all the mandatory fields, submits the data to the server
         element = self.driver.find_elements_by_xpath("//*[@data-at='register']")
         if len(element) == 0:
             print("OK. User created a new profile.")
@@ -47,4 +51,4 @@ class RegisterTest003(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
         output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
-        report_name="RegisterTest003"))
+        report_name="RegisterTest03"))

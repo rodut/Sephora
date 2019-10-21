@@ -30,13 +30,10 @@ class MainPageTest21(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # In the search bar type "perfume" than hit enter
         main.set_site_search(self.search_item)
-
         # Scroll down the page
         main.scroll_down_page()
-
         # Verify if all the products on the first page of the search result are "perfume"
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.search_result)))
         if len(element) == 60:

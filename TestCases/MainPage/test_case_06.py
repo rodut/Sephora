@@ -29,7 +29,6 @@ class MainPageTest06(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # Check if there are 18 products under "Editor's Picks", if no => ERROR
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.editors_picks_items)))
         if len(element) == 18:

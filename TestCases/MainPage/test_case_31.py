@@ -28,23 +28,18 @@ class MainPageTest31(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # Mouseover "GIFTS" dropdown box
         brands = self.driver.find_element_by_xpath(MainPage.mouseover_brands)
         actions = action_chains.ActionChains(self.driver)
         actions.move_to_element(brands).perform()
-
         # Click on "Brands A-Z"
         brands_az = self.driver.find_element_by_xpath(MainPage.brands_a_z)
         brands_az.click()
-
         # Click on brand name "Dior"
         dior = self.driver.find_element_by_xpath(MainPage.brand_dior)
         dior.click()
-
         # Scroll down to the bottom of the page
         main.scroll_bottom_page()
-
         # Verify if only "Dior" products are displayed
         element = self.driver.find_element_by_xpath(MainPage.verify_dior)
         if element.text == "DIOR":

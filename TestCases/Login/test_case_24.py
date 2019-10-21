@@ -27,14 +27,11 @@ class LoginTest24(unittest.TestCase):
 
     def test_login_24(self):
         login = Login(self.driver)
-
         # Click "Sign In" link
         login.close_icon()
         login.click_signin()
-
         # Click the "X" in the right up corner
         login.close_icon()
-
         # Check if user returns to main page
         element = self.driver.find_elements_by_xpath(Login.check_please_signin)
         if len(element) > 0:

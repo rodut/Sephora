@@ -29,7 +29,6 @@ class MainPageTest09(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # Check if there are 4 elements under "Spot it. Shop it.", if no => ERROR
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.spot_shop_items)))
         if len(element) == 4:

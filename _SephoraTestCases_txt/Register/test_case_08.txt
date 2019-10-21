@@ -1,9 +1,8 @@
 Go to sephora.com
 Click on "Register" link
-Enter valid firts name
+Enter valid first name
 Enter valid last name
-Enter valid password
 Enter incorrect email address
+Enter valid password
 Click "REGISTER" button
-
-(Verify that the validation of email field by entering incorrect email address)
+Verify that the validation of email field by entering incorrect email address

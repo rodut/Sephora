@@ -28,11 +28,9 @@ class MainPageTest02(unittest.TestCase):
     def test_mainpage_02(self):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
-
         # Click "Reorder" link
         main.click_close_x_icon()
         main.click_reorder_link()
-
         # Check if page changed to "Purchases", if no => ERROR
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_reorder_link)))
         if element:

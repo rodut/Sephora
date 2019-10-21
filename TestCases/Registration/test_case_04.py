@@ -22,30 +22,29 @@ class RegisterTest004(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_register_004(self):
+    def test_register_04(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click "Register" link
         reg.click_register()
+        # Click "Register" button
         reg.click_register_button()
-
+        # Verify that system generates an error message when clicking on "REGISTER" button without filling all the mandatory fields
         element = self.driver.find_elements_by_xpath(Register.alert_msg_first_name)
         if len(element) > 0:
             print("OK. Alert message for 'First Name' is present.")
         else:
             sys.exit("Error. Alert message for 'First Name' is not present.")
-
         element = self.driver.find_elements_by_xpath(Register.alert_msg_last_name)
         if len(element) > 0:
             print("OK. Alert message for 'Last Name' is present.")
         else:
             sys.exit("Error. Alert message for 'Last Name' is not present.")
-
         element = self.driver.find_elements_by_xpath(Register.alert_msg_email_address)
         if len(element) > 0:
             print("OK. Alert message for 'Email Address' is present.")
         else:
             sys.exit("Error. Alert message for 'Email Address' is not present.")
-
         element = self.driver.find_elements_by_xpath(Register.alert_msg_password)
         if len(element) > 0:
             print("OK. Alert message for 'Password' is present.")
@@ -56,4 +55,4 @@ class RegisterTest004(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
         output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
-        report_name="RegisterTest004"))
+        report_name="RegisterTest04"))

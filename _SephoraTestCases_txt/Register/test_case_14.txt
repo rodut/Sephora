@@ -1,3 +1,5 @@
 Go to sephora.com
 Click on "Register" link
-Verify if "privacy policy" link is working
+Click on "Privacy Policy" link
+Switch to new opened window
+Verify if "privacy policy" link was opened

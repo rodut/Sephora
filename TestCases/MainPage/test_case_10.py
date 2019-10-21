@@ -29,10 +29,8 @@ class MainPageTest10(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # Click on "We Belong to Something Beautiful" element
         main.click_something_beautiful()
-
         # Verify if the right page opened
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_smth_beautiful)))
         if len(element) > 0:

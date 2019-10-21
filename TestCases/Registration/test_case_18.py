@@ -33,13 +33,18 @@ class RegisterTest018(unittest.TestCase):
     def test_register_018(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click on "Register" link
         reg.click_register()
+        # Complete all the mandatory fields
         reg.set_first_name(self.first_name)
         reg.set_last_name(self.last_name)
         reg.set_email_address(self.email_address)
         reg.set_password(self.password)
+        # Enter a incorrect zip code (ex. AB6585)
         reg.set_zip_code(self.zip_code)
+        # Click "REGISTER" button
         reg.click_register_button()
+        # Check if an error message appears
         element = self.driver.find_elements_by_xpath(reg.alert_zip_code)
         if len(element) > 0:
             print("OK. Alert message is visible.")

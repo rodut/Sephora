@@ -24,10 +24,12 @@ class RegisterTest002(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_register_002(self):
+    def test_register_02(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click on "Register" link
         reg.click_register()
+        # Verify if all the required/mandatory fields are marked with *
         xpath = "//*[@for='firstName']"
         element = self.driver.execute_script("return window.getComputedStyle(document.querySelector('.css-1tuyf6g'),':after').getPropertyValue('content')")
         if element in xpath:
@@ -39,5 +41,5 @@ class RegisterTest002(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
         output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
-        report_name="RegisterTest002"))
+        report_name="RegisterTest02"))
 

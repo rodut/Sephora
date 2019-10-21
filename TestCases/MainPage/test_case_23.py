@@ -28,16 +28,12 @@ class MainPageTest23(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # In the search bar type "shaving" and hit enter
         main.set_site_search(self.search_item)
-
         # Adjust "Price Range" from $50 to $150
         main.set_sliders()
-
         # Scroll down the page
         main.scroll_down_page()
-
         # Verify if user can view only the products with the price between $50 and $150
         prices = self.driver.find_elements_by_xpath(MainPage.prices_50_150)
         for price in prices:

@@ -28,17 +28,13 @@ class LoginTest13(unittest.TestCase):
 
     def test_login_13(self):
         login = Login(self.driver)
-
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
-
         # Enter valid email
         login.set_email_address(self.email_address)
-
         # Enter valid password
         login.set_password(self.password)
-
         # Verify if the password is in encrypted form, of no => error
         element = self.driver.find_elements_by_xpath(Login.encrypted_password)
         if len(element) > 0:

@@ -1,8 +1,0 @@
-Go to sephora.com
-Click on "Register" link
-In "First name" field enter "          Jack        "
-Complete the rest mandatory fields
-Click "REGISTER" button
-Check if registered name is "Jack"
-
-(Verify that leading and trailing spaces are trimmed after clicking on submit button)

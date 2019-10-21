@@ -24,16 +24,20 @@ class RegisterTest014(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_register_014(self):
+    def test_register_14(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click "Register" link
         reg.click_register()
+        # Click on "Privacy Policy" link
         reg.click_privacy_policy()
         time.sleep(3)
+        # Switch to new opened window
         window_after = self.driver.window_handles[1]
         self.driver.switch_to.window(window_after)
         time.sleep(1)
         print(self.driver.title)
+        # Verify if "privacy policy" link was opened
         if self.driver.title == "Privacy Policy – Privacy & Terms – Google":
             print("OK. User can see 'Google Privacy Policy' page.")
         else:
@@ -43,4 +47,4 @@ class RegisterTest014(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
         output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
-        report_name="RegisterTest014"))
+        report_name="RegisterTest14"))

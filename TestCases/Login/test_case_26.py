@@ -28,14 +28,11 @@ class LoginTest26(unittest.TestCase):
 
     def test_login_26(self):
         login = Login(self.driver)
-
         # Click "Sign In" link
         login.close_icon()
         login.click_signin()
-
         # Select "No, I am new to the website" radio button
         login.click_new_to_site()
-
         # Check if password field disappeared, if it's present => error
         element = self.driver.find_elements_by_xpath(Login.password_field)
         if len(element) > 0:

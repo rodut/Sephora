@@ -22,10 +22,12 @@ class RegisterTest011(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_register_011(self):
+    def test_register_11(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click on "Register" link
         reg.click_register()
+        # Verify if "Subscribe to Sephora emails" checkbox is selected by default
         element = self.driver.find_element_by_xpath(Register.subscribe_emails).is_selected()
         if element:
             print("OK. 'Subscribe to Sephora emails' check-box is selected by default.")
@@ -36,4 +38,4 @@ class RegisterTest011(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
         output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
-        report_name="RegisterTest011"))
+        report_name="RegisterTest11"))

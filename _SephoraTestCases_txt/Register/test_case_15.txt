@@ -1,3 +1,5 @@
 Go to sephora.com
 Click on "Register" link
-Verify if "terms" link is working
+Click "terms" link
+Switch to new opened window
+Verify if "terms" link was opened

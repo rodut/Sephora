@@ -26,7 +26,6 @@ class MainPageTest18(unittest.TestCase):
     def test_mainpage_18(self):
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # Mouseover "SHOP" dropdown box
         # Click on "HAIR" link box
         actions = action_chains.ActionChains(self.driver)
@@ -36,16 +35,13 @@ class MainPageTest18(unittest.TestCase):
         actions.move_to_element(hair).perform()
         hair.click()
 #        actions.move_to_element(shop).move_to_element(makeup).click().perform()
-
         # Verify if the right page was opened
         if self.driver.title == "Hair Care Products | Sephora":
             print("OK. Hair Care Products page was opened.")
         else:
             sys.exit("ERROR. Hair Care Products page wasn't opened.")
-
         # Go back to the main page
         main.click_main_page()
-
         # Mouseover "SHOP" dropdown box
         # Click "TOOLS & BRUSHES" link box
         actions = action_chains.ActionChains(self.driver)
@@ -54,7 +50,6 @@ class MainPageTest18(unittest.TestCase):
         tools_brushes = self.driver.find_element_by_xpath(MainPage.tools_brushes_link)
         actions.move_to_element(tools_brushes).perform()
         tools_brushes.click()
-
         # Verify if the right page was opened
         if self.driver.title == "Makeup Tools, Beauty Tools & Makeup Accessories | Sephora":
             print("OK. Makeup Tools, Beauty Tools & Makeup Accessories page was opened.")

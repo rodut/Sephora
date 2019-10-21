@@ -28,11 +28,9 @@ class MainPageTest03(unittest.TestCase):
     def test_mainpage_03(self):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
-
         # Click "Track Order" link
         main.click_close_x_icon()
         main.click_track_order_link()
-
         # Check if page changed to "ORDER STATUS & HISTORY", if no => ERROR
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_track_order)))
         if element:

@@ -25,7 +25,9 @@ class RegisterTest001(unittest.TestCase):
     def test_register_001(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click on "Register" link
         reg.click_register()
+        # Check if Registration form contains the following field: first name, last name, email address, password, month, day, year, zip code
         element = self.driver.find_elements_by_xpath(Register.first_name_id)
         if len(element) > 0:
             print("OK. 'First Name' field is present.")

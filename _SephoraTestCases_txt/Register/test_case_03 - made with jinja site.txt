@@ -1,4 +1,7 @@
 Go to http://tutorialsninja.com/demo/index.php?route=common/home
+Click "My Account" link
 Click on "Register" link
 Compete the all mandatory fields
+Click privacy policy checkbox
+Click "Continue" button
 Verify that clicking on "Continue" button after entering all the mandatory fields, submits the data to the server

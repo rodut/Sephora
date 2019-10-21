@@ -24,25 +24,21 @@ class LoginTest02(unittest.TestCase):
 
     def test_login_01(self):
         login = Login(self.driver)
-
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
-
         # Verifying if 'Email address' field is present.
         element = self.driver.find_elements_by_xpath(Login.email_address_id)
         if len(element) > 0:
             print("OK. 'Email address' field is present.")
         else:
             sys.exit("ERROR. 'Email address' field is not present.")
-
         # Verifying if 'No, I am new to the website' radio button is present.
         element = self.driver.find_elements_by_xpath(Login.no_password)
         if len(element) > 0:
             print("OK. 'No, I am new to the website' radio button is present.")
         else:
             sys.exit("ERROR. 'No, I am new to the website' radio button is not present.")
-
         # Verifying if 'Yes, I have a password' radio button is present.
         element = self.driver.find_elements_by_xpath(Login.yes_password)
         if len(element) > 0:

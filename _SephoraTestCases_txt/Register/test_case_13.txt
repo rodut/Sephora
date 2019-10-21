@@ -1,3 +1,4 @@
 Go to sephora.com
 Click on "Register" link
-Verify if "Terms & Conditions" link is working
+Click "Terms & Conditions" link
+Verify if "Terms & Conditions" link was opened

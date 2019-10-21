@@ -30,14 +30,11 @@ class MainPageTest25(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # In the search bar type "shaving" and hit enter
         main.set_site_search(self.search_item)
-
         # From "Sort by:" select "Price Low to High"
         main.click_dropdown_sort_by()
         main.click_price_low_high()
-
         # Verify if all the prices are listed correctly, from low to high
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_low_high)))
         if element:

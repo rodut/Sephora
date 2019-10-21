@@ -28,25 +28,20 @@ class LoginTest28(unittest.TestCase):
 
     def test_login_28(self):
         login = Login(self.driver)
-
         # Click "Sign In" link
         login.close_icon()
         login.click_signin()
-
         # Click "Privacy Policy" link
         login.click_privacy_policy()
         time.sleep(1)
-
         # Check if "Privacy Policy" page has oppened, if no => error
         element = self.driver.find_elements_by_xpath(Login.check_privacy_policy)
         if len(element) > 0:
             print("OK. The user can see Privacy Policy.")
         else:
             sys.exit("ERROR.  The user cannot see Privacy Policy.")
-
         # Click "X" in the right top corner
         login.click_close_privacy_policy()
-
         # Check if user returned to "Sign In" page
         element = self.driver.find_elements_by_xpath(Login.check_please_signin)
         if len(element) > 0:

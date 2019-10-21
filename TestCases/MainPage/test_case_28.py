@@ -30,25 +30,20 @@ class MainPageTest28(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # In the search bar type "shaving" and hit enter
         main.set_site_search(self.search_item)
         products_nr = self.driver.find_element_by_xpath(MainPage.number_of_products)
         a = products_nr.text
         number = a.replace(" Product results", "")
-
         # Scroll down the page
         main.scroll_bottom_page()
-
         # In the bottom of the page select page 2
         element1 = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_skincare_2)))
         first_page_products = len(element1)
         page_2 = self.driver.find_element_by_xpath(MainPage.click_page_2)
         page_2.click()
-
         # Scroll to the bottom of the page
         main.scroll_bottom_page()
-
         # Check if the number next to "Product results: 'shaving'" matches to the number of products displayed on the both pages
         element2 = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_skincare_2)))
         second_page_products = len(element2)

@@ -22,11 +22,14 @@ class RegisterTest013(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_register_013(self):
+    def test_register_13(self):
         reg = Register(self.driver)
         reg.close_icon()
+        # Click on "Register" link
         reg.click_register()
+        # Click "Terms & Conditions" link
         reg.click_terms_conditions()
+        # Verify if "Terms & Conditions" link was opened
         element = self.driver.find_element_by_xpath(Register.terms_conditions_verification).is_displayed()
         if element:
             print("OK. User can see 'Terms & Conditions' page.")
@@ -37,4 +40,4 @@ class RegisterTest013(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
         output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
-        report_name="RegisterTest013"))
+        report_name="RegisterTest13"))

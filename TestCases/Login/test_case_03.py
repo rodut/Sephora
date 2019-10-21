@@ -24,25 +24,21 @@ class LoginTest03(unittest.TestCase):
 
     def test_login_03(self):
         login = Login(self.driver)
-
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
-
         # Verifying if 'Password' field is present.
         element = self.driver.find_elements_by_xpath(Login.password_field)
         if len(element) > 0:
             print("OK. 'Password' field is present.")
         else:
             sys.exit("ERROR. 'Password' field is not present.")
-
         # Verifying if 'Forgot?' link is present.
         element = self.driver.find_elements_by_xpath(Login.forgot_link)
         if len(element) > 0:
             print("OK. 'Forgot?' link is present.")
         else:
             sys.exit("ERROR. 'Forgot?' link is not present.")
-
         # Verifying if 'Cancel' button is present.
         element = self.driver.find_elements_by_xpath(Login.cancel_button)
         if len(element) > 0:

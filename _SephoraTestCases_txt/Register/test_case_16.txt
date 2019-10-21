@@ -1,5 +1,5 @@
 Go to sephora.com
 Click on "Register" link
-Enter data in all mandatory fields
+Enter data in all the mandatory fields
 Click on "Yes, join Sephora’s free rewards program and earn points on every purchase" checkbox
 Verify if "Subscribe to Sephora emails" is not clickable

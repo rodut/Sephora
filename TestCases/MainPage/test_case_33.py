@@ -25,11 +25,9 @@ class MainPageTest33(unittest.TestCase):
     def test_mainpage_33(self):
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # Click on "NEW" dropdown box
         new = self.driver.find_element_by_xpath(MainPage.mouseover_new)
         new.click()
-
         # A lot of scrolling ;)
         main.scroll_down_page()
         main.scroll_down_page()
@@ -37,7 +35,6 @@ class MainPageTest33(unittest.TestCase):
         main.scroll_down_page()
         main.scroll_down_page()
         main.scroll_down_page()
-
         # Check if all displayed products have "NEW" in the top left corner
         element = self.driver.find_element_by_xpath(MainPage.verify_new)
         if element.text == "NEW":

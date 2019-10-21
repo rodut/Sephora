@@ -30,10 +30,8 @@ class MainPageTest26(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
-
         # In the search bar type "shaving" and hit enter
         main.set_site_search(self.search_item)
-
         # Click on any category name, ex. "Skincare (16)"
         element = self.driver.find_element_by_xpath(MainPage.verify_skincare_1)
         x = element.text
@@ -41,10 +39,8 @@ class MainPageTest26(unittest.TestCase):
         z = y.replace(")", "")
         skin_n1 = int(z)
         main.click_skincare_link()
-
         # Scroll down the page
         main.scroll_down_page_lights()
-
         # Check to see if the number next to the category matches the number of products displayed (16)
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_skincare_2)))
         if len(element) == skin_n1:
