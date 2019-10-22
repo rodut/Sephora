@@ -3,4 +3,4 @@ Click "Sign In" link
 Select "No, I am new to the website" radio button
 Check if password field disappeared, if it's present => error
 Select "Yes, I have a password"
-Check if password field reappeared, if not =? error
+Check if password field reappeared, if no => error

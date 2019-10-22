@@ -1,6 +1,6 @@
 Go to sephora.com
 Click "Sign In" link
 Click "Privacy Policy" link
-Check if "Privacy Policy" page has oppened, if no => error
+Check if "Privacy Policy" page has opened, if no => error
 Click "X" in the right top corner
 Check if user returned to "Sign In" page

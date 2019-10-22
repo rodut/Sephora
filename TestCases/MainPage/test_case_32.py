@@ -3,7 +3,6 @@ import HtmlTestRunner
 from selenium import webdriver
 from PageObjects.MainPage import MainPage
 from selenium.webdriver import ActionChains
-from selenium.webdriver.support.wait import WebDriverWait
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
@@ -25,7 +24,6 @@ class MainPageTest32(unittest.TestCase):
         cls.driver.quit()
 
     def test_mainpage_32(self):
-        wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
         # Mouseover "GIFTS" dropdown box

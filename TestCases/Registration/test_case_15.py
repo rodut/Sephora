@@ -32,7 +32,7 @@ class RegisterTest015(unittest.TestCase):
         # Click "terms" link
         reg.click_terms()
         time.sleep(3)
-        #
+        # Switch to new opened window
         window_after = self.driver.window_handles[1]
         self.driver.switch_to.window(window_after)
         time.sleep(1)
