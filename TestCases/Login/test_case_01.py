@@ -23,7 +23,7 @@ class LoginTest01(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_login_00(self):
+    def test_login_01(self):
         login = Login(self.driver)
         # Clicking "Sign In" link
         login.close_icon()
@@ -39,4 +39,4 @@ class LoginTest01(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
         output="C:\\Users\\Tudor\\PycharmProjects\\Sephora\\Reports",
-        report_name="LoginTest00"))
+        report_name="LoginTest01"))

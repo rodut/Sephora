@@ -14,7 +14,7 @@ class LoginTest18(unittest.TestCase):
     driver = webdriver.Chrome()
     email_address = "sephoramajordome11@gmail.com"
     password = "antibacterie"
-    
+
     @classmethod
     def setUpClass(cls):
         login = Login(cls.driver)
