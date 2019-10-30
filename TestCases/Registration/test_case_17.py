@@ -13,8 +13,8 @@ __email__ = "tudorache@gmail.com"
 
 class RegisterTest017(unittest.TestCase):
     driver = webdriver.Chrome()
-    first_name = "Bobbi"
-    last_name = "Starr"
+    first_name = "Jacky"
+    last_name = "Nicholsons"
     email_address = "trulala@jojo.com"
     password = "123456789"
 

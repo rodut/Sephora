@@ -15,8 +15,8 @@ class MyAccountTest09Ninja(unittest.TestCase):
     driver = webdriver.Chrome()
     email_address = "jacknicholson@gmail.com"
     password = "123456789"
-    new_first_name = "Bobbi"
-    new_last_name = "Starr"
+    new_first_name = "Jacky"
+    new_last_name = "Nicholsons"
     new_city = "Dallas"
     new_zip = "55555"
     new_address = "123 Main St."
