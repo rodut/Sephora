@@ -1,6 +1,6 @@
 Go to sephora.com
 Click on "Sign In" link
 Enter an empty email in email field
-Enter an empty passord in password field
+Enter an empty password in password field
 Click on "Continue" button
 Verify if user cannot login with empty email and empty pass

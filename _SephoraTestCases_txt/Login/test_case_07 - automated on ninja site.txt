@@ -4,4 +4,4 @@ Click on "Login" link
 Enter a valid email in email field
 Enter a invalid password in password field
 Click on "Login" button
-Verify if user cannot login with valid email/pass
+Verify if user cannot login with valid email and invalid password
