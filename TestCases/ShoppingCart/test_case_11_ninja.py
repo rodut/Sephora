@@ -1,13 +1,11 @@
 import unittest
 import HtmlTestRunner
-import time
 from selenium import webdriver
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class ShoppingCartTest11Ninja(unittest.TestCase):
@@ -20,7 +18,6 @@ class ShoppingCartTest11Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = ShoppingCartNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):

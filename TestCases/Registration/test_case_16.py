@@ -1,5 +1,4 @@
 import unittest
-import time
 import HtmlTestRunner
 from selenium import webdriver
 from PageObjects.Register import Register
@@ -8,7 +7,6 @@ import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class RegisterTest016(unittest.TestCase):

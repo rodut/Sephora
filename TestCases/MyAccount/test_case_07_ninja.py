@@ -8,7 +8,6 @@ import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class MyAccountTest07Ninja(unittest.TestCase):

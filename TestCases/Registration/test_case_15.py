@@ -7,7 +7,6 @@ import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class RegisterTest015(unittest.TestCase):
@@ -38,7 +37,6 @@ class RegisterTest015(unittest.TestCase):
         print(self.driver.title)
         # Verify if "terms" link was opened
         assert self.driver.title == "Google Terms of Service – Privacy & Terms – Google", "ERROR. User cannot see 'Google Terms of Service' page."
-
 
 
 if __name__ == "__main__":

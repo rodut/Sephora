@@ -1,5 +1,4 @@
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 import unittest
 import HtmlTestRunner

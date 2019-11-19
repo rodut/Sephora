@@ -7,10 +7,8 @@ from selenium import webdriver
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
-import time
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class ShoppingCartTest03Ninja(unittest.TestCase):

@@ -4,13 +4,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-import time
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class ShoppingCartTest12Ninja(unittest.TestCase):
@@ -26,7 +24,6 @@ class ShoppingCartTest12Ninja(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        time.sleep(600)
         cls.driver.quit()
 
     def test_shopping_cart_12_ninja(self):

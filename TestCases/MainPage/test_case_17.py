@@ -11,7 +11,6 @@ import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class MainPageTest17(unittest.TestCase):

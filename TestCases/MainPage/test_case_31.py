@@ -3,12 +3,10 @@ import HtmlTestRunner
 from selenium import webdriver
 from selenium.webdriver.common import action_chains
 from PageObjects.MainPage import MainPage
-from selenium.webdriver.support.wait import WebDriverWait
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
 __author__ = "Tudor C"
-__email__ = "tudorache@gmail.com"
 
 
 class MainPageTest31(unittest.TestCase):
