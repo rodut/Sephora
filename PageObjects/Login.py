@@ -3,8 +3,7 @@ from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.common.keys import Keys
 import time
 
-__author__ = "Chirosca Tudor"
-__email__ = "tudorache@gmail.com"
+__author__ = "Tudor C"
 
 
 class Login:

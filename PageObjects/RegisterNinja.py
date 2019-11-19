@@ -1,7 +1,6 @@
 from selenium import webdriver
 
-__author__ = "Chirosca Tudor"
-__email__ = "tudorache@gmail.com"
+__author__ = "Tudor C"
 
 
 class RegisterNinja:

@@ -1,9 +1,7 @@
-from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 
-__author__ = "Chirosca Tudor"
-__email__ = "tudorache@gmail.com"
+__author__ = "Tudor C"
 
 
 class MyAccountNinja:
