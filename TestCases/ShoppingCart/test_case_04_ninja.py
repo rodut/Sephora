@@ -1,6 +1,8 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
@@ -20,13 +22,13 @@ class ShoppingCartTest04Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = ShoppingCartNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_shopping_cart_04_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         shopcart = ShoppingCartNinja(self.driver)
         # Click on "My Account" link
         shopcart.click_my_account_link()
@@ -49,18 +51,12 @@ class ShoppingCartTest04Ninja(unittest.TestCase):
         # Verify if the selected product is in "Wish List"
         element_2 = self.driver.find_element_by_xpath(ShoppingCartNinja.wishlist_elem)
         elem_2 = element_2.text
-        if elem_1 == elem_2:
-            print("OK. User can view the selected book in the Wish List.")
-        else:
-            sys.exit("ERROR. User cannot view the selected book in the Wish List.")
+        assert elem_1 == elem_2, "ERROR. User cannot view the selected book in the Wish List."
         # Click on "Remove" button
         shopcart.click_remove_button()
         # Verify if product was deleted
-        element_2 = self.driver.find_elements_by_xpath(ShoppingCartNinja.wishlist_elem)
-        if len(element_2) > 0:
-            sys.exit("ERROR. The product wasn't remove from the wish list.")
-        else:
-            print("OK. The product was successfully removed from the wish list.")
+        element_2 = wait.until(EC.invisibility_of_element_located((By.XPATH, ShoppingCartNinja.wishlist_elem)))
+        assert element_2, "OK. The product was successfully removed from the wish list."
 
 
 if __name__ == "__main__":

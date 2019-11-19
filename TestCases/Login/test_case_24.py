@@ -1,7 +1,6 @@
 import unittest
 import HtmlTestRunner
 from selenium import webdriver
-import time
 from PageObjects.Login import Login
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -19,10 +18,10 @@ class LoginTest24(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
+
         cls.driver.quit()
 
     def test_login_24(self):
@@ -34,10 +33,7 @@ class LoginTest24(unittest.TestCase):
         login.close_icon()
         # Check if user returns to main page
         element = self.driver.find_elements_by_xpath(Login.check_please_signin)
-        if len(element) > 0:
-            sys.exit("ERROR. User didn't return to the main page.")
-        else:
-            print("OK. User returned to the main page.")
+        assert len(element) == 0, "ERROR. User didn't return to the main page."
 
 
 if __name__ == "__main__":

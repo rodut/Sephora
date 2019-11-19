@@ -46,7 +46,7 @@ class MainPage:
     twitter_icon = "//*[@data-comp='IconTwitter Icon Box']"
     verify_twitter = "//title[text()='Sephora (@Sephora) | Twitter']"
     instagram_icon = "//*[@data-comp='IconInstagram Icon Box']"
-    verify_instagram = "//title[text()='Sephora (@sephora) • Instagram photos and videos']"
+    verify_instagram = "//button[@class='sqdOP  L3NKy   y3zKF     ' and text()='Log In']"
     youtube_icon = "//*[@data-comp='IconYoutube Icon Box']"
     verify_youtube = "//title[text()='Sephora - YouTube']"
     terms_use_link = "//a[text()='Terms of Use']"

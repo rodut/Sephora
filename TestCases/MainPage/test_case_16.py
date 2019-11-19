@@ -33,22 +33,16 @@ class MainPageTest16(unittest.TestCase):
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.terms_use_link)))
         element.click()
         # Verify if the right page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_terms_use)))
-        if len(element) > 0:
-            print("OK. Sephora's Instagram page was opened.")
-        else:
-            sys.exit("ERROR. Sephora's Instagram page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_terms_use)))
+        assert element.is_displayed(), "ERROR. Sephora's Instagram page wasn't opened."
         # Click back button on browser
         main.browser_back_button()
         # Click on "Privacy Policy" link
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.privacy_policy_link)))
         element.click()
         # Verify if the right page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_privacy_policy)))
-        if len(element) > 0:
-            print("OK. Sephoria's Youtube page was opened.")
-        else:
-            sys.exit("ERROR. Sephoria's Youtube page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_privacy_policy)))
+        assert element.is_displayed(), "ERROR. Sephoria's Youtube page wasn't opened."
 
 
 if __name__ == "__main__":

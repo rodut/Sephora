@@ -1,7 +1,9 @@
 import unittest
 import HtmlTestRunner
-import time
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from PageObjects.RegisterNinja import RegisterNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -14,7 +16,7 @@ class RegisterTest003(unittest.TestCase):
     driver = webdriver.Chrome()
     first_name = "Jack"
     last_name = "Nicholson"
-    email = "jacknicholson@gmail.com"
+    email = "jacknicholsonsss@gmail.com"
     telephone = "12122256998"
     password = "123456789"
     password_confirm = "123456789"
@@ -30,9 +32,9 @@ class RegisterTest003(unittest.TestCase):
         cls.driver.quit()
 
     def test_register_03_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         reg = RegisterNinja(self.driver)
-        #
-
+        # Click on "My Account" link
         reg.click_my_account_link()
         # Click on "Register" link
         reg.click_register_link()
@@ -47,21 +49,13 @@ class RegisterTest003(unittest.TestCase):
         reg.click_privacy_policy_checkbox()
         # Click "Continue" button
         reg.click_continue_button()
-        time.sleep(1)
         # Verify that clicking on "Continue" button after entering all the mandatory fields, submits the data to the server
-        element = self.driver.find_element_by_xpath(RegisterNinja.success_link).is_displayed()
-        if element:
-            print("OK. 'Success' link is visible, so user made an account.")
-        else:
-            sys.exit("ERROR. 'Success' link is invisible, there is a problem with creating an account.")
-        #
+        element = wait.until(EC.presence_of_element_located((By.XPATH, RegisterNinja.success_link)))
+        assert element.is_displayed()
+        # Click on "Continue" button
         reg.click_continue_button_2()
-        #
         element = self.driver.find_element_by_xpath(RegisterNinja.account_link).is_displayed()
-        if element:
-            print("OK. User had been logged in.")
-        else:
-            sys.exit("ERROR. There is a problem with login process.")
+        assert element, "ERROR. There is a problem with login process."
 
 
 if __name__ == "__main__":

@@ -1,6 +1,8 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from PageObjects.Login import Login
 from selenium import webdriver
 import sys
@@ -20,13 +22,13 @@ class LoginTest13(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_login_13(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Clicking "Sign In" link
         login.close_icon()
@@ -36,11 +38,8 @@ class LoginTest13(unittest.TestCase):
         # Enter valid password
         login.set_password(self.password)
         # Verify if the password is in encrypted form, of no => error
-        element = self.driver.find_elements_by_xpath(Login.encrypted_password)
-        if len(element) > 0:
-            print("OK. Password is in encrypted form.")
-        else:
-            sys.exit("ERROR. Password is not in encrypted form.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.encrypted_password)))
+        assert element.is_displayed(), "ERROR. Password is not in encrypted form."
 
 
 if __name__ == "__main__":

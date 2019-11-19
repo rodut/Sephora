@@ -33,33 +33,24 @@ class MainPageTest12(unittest.TestCase):
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.affiliates_link)))
         element.click()
         # Verify if the right page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_affiliates)))
-        if len(element) > 0:
-            print("OK. 'Affiliates' page was opened.")
-        else:
-            sys.exit("ERROR. 'Affiliates' page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_affiliates)))
+        assert element.is_displayed(), "ERROR. 'Affiliates' page wasn't opened."
         # Click back button on browser
         main.browser_back_button()
         # Click on "Supply Chain Transparency" link (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.supply_chain_link)))
         element.click()
         # Verify if the right page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_supply_chain)))
-        if len(element) > 0:
-            print("OK. 'Supply Chain Transparency' page was opened.")
-        else:
-            sys.exit("ERROR. 'Supply Chain Transparency' page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_supply_chain)))
+        assert element.is_displayed(), "ERROR. 'Supply Chain Transparency' page wasn't opened."
         # Click back button on browser
         main.browser_back_button()
         # Click on "Sitemap" link (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.sitemap_link)))
         element.click()
         # Verify if the right page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_sitemap)))
-        if len(element) > 0:
-            print("OK. 'Sitemap' page was opened.")
-        else:
-            sys.exit("ERROR. 'Sitemap' page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_sitemap)))
+        assert element.is_displayed(), "ERROR. 'Sitemap' page wasn't opened."
 
 
 if __name__ == "__main__":

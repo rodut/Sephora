@@ -63,20 +63,14 @@ class MyAccountTest08Ninja(unittest.TestCase):
         time.sleep(1)
         # Verify if the new address was added
         element = self.driver.find_element_by_xpath(MyAccountNinja.verify_new_address)
-        check = "Bobbi Starr\n123 Main St.\nDallas, Texas 55555\nUnited States"
-        if check == element.text:
-            print("OK. The new address was added.")
-        else:
-            sys.exit("ERROR. The new address wasn't added.")
+        check = "Jacky Nicholsons\n123 Main St.\nDallas, Texas 55555\nUnited States"
+        assert check == element.text, "ERROR. The new address wasn't added."
         # Click on "Delete" button next to your new address
         myacc.click_new_address_delete_button()
         time.sleep(1)
         # Verify if the new address was deleted
         element = self.driver.find_elements_by_xpath(MyAccountNinja.verify_new_address)
-        if len(element) > 0:
-            sys.exit("ERROR. The new address wasn't deleted.")
-        else:
-            print("OK. The new address was deleted.")
+        assert len(element) == 0, "ERROR. The new address wasn't deleted."
 
 
 if __name__ == "__main__":

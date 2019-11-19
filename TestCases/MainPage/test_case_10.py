@@ -32,11 +32,8 @@ class MainPageTest10(unittest.TestCase):
         # Click on "We Belong to Something Beautiful" element
         main.click_something_beautiful()
         # Verify if the right page opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_smth_beautiful)))
-        if len(element) > 0:
-            print("OK. The right page was opened.")
-        else:
-            sys.exit("ERROR. The right page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_smth_beautiful)))
+        assert element.is_displayed(), "ERROR. The right page wasn't opened."
 
 
 if __name__ == "__main__":

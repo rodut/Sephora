@@ -37,10 +37,7 @@ class MainPageTest29(unittest.TestCase):
         main.click_brand_name_link()
         # Verify if all the brands are arranged in alphabetical order
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_brand_name)))
-        if element:
-            print("OK. Products are sorted by Brand Name.")
-        else:
-            sys.exit("ERROR. Products are not sorted by Brand Name.")
+        assert element, "ERROR. Products are not sorted by Brand Name."
 
 
 if __name__ == "__main__":

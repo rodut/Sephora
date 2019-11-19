@@ -39,10 +39,7 @@ class MainPageTest30(unittest.TestCase):
             y = g.replace(".00", "")
             k = y.replace("$", "")
             print(int(k))
-            if int(k) <= 10:
-                print("OK. All prices are under or equal to $10.")
-            else:
-                sys.exit("ERROR. There are prices greater than $10.")
+            assert int(k) <= 10, "ERROR. There are prices greater than $10."
 
 
 if __name__ == "__main__":

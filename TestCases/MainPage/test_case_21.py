@@ -36,10 +36,7 @@ class MainPageTest21(unittest.TestCase):
         main.scroll_down_page()
         # Verify if all the products on the first page of the search result are "perfume"
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.search_result)))
-        if len(element) == 60:
-            print("OK. There are 60 products on the first page result.")
-        else:
-            sys.exit("ERROR. There are more/less than 60 products on the first page result.")
+        assert len(element) == 60, "ERROR. There are more/less than 60 products on the first page result."
 
 
 if __name__ == "__main__":

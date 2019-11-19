@@ -37,10 +37,7 @@ class MainPageTest33(unittest.TestCase):
         main.scroll_down_page()
         # Check if all displayed products have "NEW" in the top left corner
         element = self.driver.find_element_by_xpath(MainPage.verify_new)
-        if element.text == "NEW":
-            print("OK. All products displayed are 'New'.")
-        else:
-            sys.exit("ERROR. Not all the products are 'New'.")
+        assert element.text == "NEW", "ERROR. Not all the products are 'New'."
 
 
 if __name__ == "__main__":

@@ -1,5 +1,7 @@
 import unittest
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 import HtmlTestRunner
 from selenium import webdriver
 from PageObjects.Register import Register
@@ -23,13 +25,13 @@ class RegisterTest017(unittest.TestCase):
         reg = Register(cls.driver)
         cls.driver.get(reg.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_register_17(self):
+        wait = WebDriverWait(self.driver, 10)
         reg = Register(self.driver)
         reg.close_icon()
         # Click on "Register" link
@@ -44,11 +46,8 @@ class RegisterTest017(unittest.TestCase):
         # Click "REGISTER" button
         reg.click_register_button()
         # Check if there is an error message "Please select your birth date"
-        element = self.driver.find_elements_by_xpath(reg.alert_birth_date)
-        if len(element) > 0:
-            print("OK. Alert message is visible.")
-        else:
-            sys.exit("ERROR. Alert message is not visible.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, reg.alert_birth_date)))
+        assert element.is_displayed(), "ERROR. Alert message is not visible."
 
 
 if __name__ == "__main__":

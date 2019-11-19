@@ -25,7 +25,6 @@ class MainPageTest31(unittest.TestCase):
         cls.driver.quit()
 
     def test_mainpage_31(self):
-        wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
         # Mouseover "GIFTS" dropdown box
@@ -42,10 +41,7 @@ class MainPageTest31(unittest.TestCase):
         main.scroll_bottom_page()
         # Verify if only "Dior" products are displayed
         element = self.driver.find_element_by_xpath(MainPage.verify_dior)
-        if element.text == "DIOR":
-            print("OK. All products displayed are Dior's.")
-        else:
-            sys.exit("ERROR. Not all products are Dior's.")
+        assert element.text == "DIOR", "ERROR. Not all products are Dior's."
 
 
 if __name__ == "__main__":

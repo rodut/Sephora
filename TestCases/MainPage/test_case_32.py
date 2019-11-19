@@ -39,10 +39,7 @@ class MainPageTest32(unittest.TestCase):
         main.scroll_bottom_page()
         # Verify if all the products names matches the selected "CLINIQUE" checkbox
         element = self.driver.find_element_by_xpath(MainPage.verify_clinique)
-        if element.text == "CLINIQUE":
-            print("OK. All products displayed are Clinique's.")
-        else:
-            sys.exit("ERROR. Not all products are Clinique's.")
+        assert element.text == "CLINIQUE", "ERROR. Not all products are Clinique's."
 
 
 if __name__ == "__main__":

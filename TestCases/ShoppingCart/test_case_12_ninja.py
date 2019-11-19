@@ -1,7 +1,10 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
+import time
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -20,13 +23,14 @@ class ShoppingCartTest12Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = ShoppingCartNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
+        time.sleep(600)
         cls.driver.quit()
 
     def test_shopping_cart_12_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         shopcart = ShoppingCartNinja(self.driver)
         # Add to cart a random item
         element_1 = self.driver.find_element_by_xpath(ShoppingCartNinja.elem_1)
@@ -37,19 +41,12 @@ class ShoppingCartTest12Ninja(unittest.TestCase):
         # Verify if the product is present
         element_2 = self.driver.find_element_by_xpath(ShoppingCartNinja.elem_2)
         elem_2 = element_2.text
-        if elem_1 == elem_2:
-            print("OK. User can view the selected book in the shopping cart.")
-        else:
-            sys.exit("ERROR. User cannot view the selected book in the shopping cart.")
+        assert elem_1 == elem_2, "ERROR. User cannot view the selected book in the shopping cart."
         # Click "Checkout" button
         shopcart.click_checkout_button()
-        time.sleep(1)
         # Verify if the site is asking you to login
-        element = self.driver.find_element_by_xpath(ShoppingCartNinja.returning_customer).is_displayed()
-        if element:
-            print("OK. The site asks user to login.")
-        else:
-            sys.exit("ERROR. The site didn't asked user to login.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, ShoppingCartNinja.returning_customer))).is_displayed()
+        assert element, "ERROR. The site didn't asked user to login."
         # Enter a valid email address
         shopcart.set_email(self.email_address)
         # Enter a valid password
@@ -59,12 +56,9 @@ class ShoppingCartTest12Ninja(unittest.TestCase):
         # Click "Shopping Cart" link
         shopcart.click_shopping_cart()
         # Verify if the product was added to the shopping cart
-        element_2 = self.driver.find_element_by_xpath(ShoppingCartNinja.elem_2)
+        element_2 = wait.until(EC.presence_of_element_located((By.XPATH, ShoppingCartNinja.elem_2)))
         elem_2 = element_2.text
-        if elem_1 == elem_2:
-            print("OK. Logged in user can view the selected book in the shopping cart.")
-        else:
-            sys.exit("ERROR. Logged in user cannot view the selected book in the shopping cart.")
+        assert elem_1 == elem_2, "ERROR. Logged in user cannot view the selected book in the shopping cart."
 
 
 if __name__ == "__main__":

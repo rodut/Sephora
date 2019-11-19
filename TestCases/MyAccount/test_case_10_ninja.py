@@ -65,11 +65,8 @@ class MyAccountTest10Ninja(unittest.TestCase):
         time.sleep(1)
         # Verify if the new address was added
         element = self.driver.find_element_by_xpath(MyAccountNinja.verify_new_address)
-        check = "Bobbi Starr\n123 Main St.\nDallas, Texas 55555\nUnited States"
-        if check == element.text:
-            print("OK. The new address was added.")
-        else:
-            sys.exit("ERROR. The new address wasn't added.")
+        check = "Jacky Nicholsons\n123 Main St.\nDallas, Texas 55555\nUnited States"
+        assert check == element.text, "ERROR. The new address wasn't added."
         # Click on "Edit" button
         myacc.click_new_address_edit_button()
         # Click on "No" radio button
@@ -80,10 +77,7 @@ class MyAccountTest10Ninja(unittest.TestCase):
         myacc.click_new_address_edit_button()
         # Verify if "Yes" radio button is still selected
         element = self.driver.find_element_by_xpath(MyAccountNinja.yes_radio_button).is_selected()
-        if element:
-            print("OK. 'Yes' radio button is still selected.")
-        else:
-            sys.exit("ERROR.'Yes' radio button is not selected.")
+        assert element, "ERROR.'Yes' radio button is not selected."
 
 
 if __name__ == "__main__":

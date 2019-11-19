@@ -31,10 +31,7 @@ class MainPageTest09(unittest.TestCase):
         main.click_close_x_icon()
         # Check if there are 4 elements under "Spot it. Shop it.", if no => ERROR
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.spot_shop_items)))
-        if len(element) == 4:
-            print("OK. There are 4 products under 'Spot it. Shop it.'.")
-        else:
-            sys.exit("ERROR. There are more/less than 4 products under 'Spot it. Shop it.'.")
+        assert len(element) == 4, "ERROR. There are more/less than 4 products under 'Spot it. Shop it.'."
 
 
 if __name__ == "__main__":

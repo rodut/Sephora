@@ -1,7 +1,9 @@
 import unittest
 import HtmlTestRunner
-import time
 from PageObjects.Login import Login
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -20,13 +22,13 @@ class LoginTest08(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_login_08(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Clicking "Sign In" link
         login.close_icon()
@@ -38,11 +40,8 @@ class LoginTest08(unittest.TestCase):
         # Click on "Continue" button
         login.click_continue()
         # Verify if user cannot login with empty email address
-        element = self.driver.find_elements_by_xpath(Login.alert_no_email_address)
-        if len(element) > 0:
-            print("OK. Missing email error text is present.")
-        else:
-            sys.exit("ERROR. Missing email error text is no present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.alert_no_email_address)))
+        assert element.is_displayed(), "ERROR. Missing email error text is no present."
 
 
 if __name__ == "__main__":

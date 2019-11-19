@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 __author__ = "Chirosca Tudor"
 __email__ = "tudorache@gmail.com"
@@ -91,7 +94,7 @@ class ShoppingCartNinja:
         self.driver.find_element_by_xpath(self.wish_list_link).click()
 
     def click_remove_button(self):
-        self.driver.find_element_by_xpath(self.remove_button).click()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.remove_button))).click()
 
     def click_addtocart_button(self):
         self.driver.find_element_by_xpath(self.addtocart_button).click()
@@ -100,7 +103,7 @@ class ShoppingCartNinja:
         self.driver.find_element_by_xpath(self.checkout_button).click()
 
     def click_black_button_id(self):
-        self.driver.find_element_by_xpath(self.black_button_id).click()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.black_button_id))).click()
 
     def click_black_button_remove(self):
         self.driver.find_element_by_xpath(self.black_button_remove).click()

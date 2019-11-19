@@ -1,6 +1,9 @@
 import unittest
 import HtmlTestRunner
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from PageObjects.Register import Register
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -23,6 +26,7 @@ class RegisterTest004(unittest.TestCase):
         cls.driver.quit()
 
     def test_register_04(self):
+        wait = WebDriverWait(self.driver, 10)
         reg = Register(self.driver)
         reg.close_icon()
         # Click "Register" link
@@ -30,26 +34,14 @@ class RegisterTest004(unittest.TestCase):
         # Click "Register" button
         reg.click_register_button()
         # Verify that system generates an error message when clicking on "REGISTER" button without filling all the mandatory fields
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_first_name)
-        if len(element) > 0:
-            print("OK. Alert message for 'First Name' is present.")
-        else:
-            sys.exit("Error. Alert message for 'First Name' is not present.")
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_last_name)
-        if len(element) > 0:
-            print("OK. Alert message for 'Last Name' is present.")
-        else:
-            sys.exit("Error. Alert message for 'Last Name' is not present.")
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_email_address)
-        if len(element) > 0:
-            print("OK. Alert message for 'Email Address' is present.")
-        else:
-            sys.exit("Error. Alert message for 'Email Address' is not present.")
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_password)
-        if len(element) > 0:
-            print("OK. Alert message for 'Password' is present.")
-        else:
-            sys.exit("Error. Alert message for 'Password' is not present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Register.alert_msg_first_name)))
+        assert element.is_displayed()
+        element = self.driver.find_element_by_xpath(Register.alert_msg_last_name)
+        assert element.is_displayed()
+        element = self.driver.find_element_by_xpath(Register.alert_msg_email_address)
+        assert element.is_displayed()
+        element = self.driver.find_element_by_xpath(Register.alert_msg_password)
+        assert element.is_displayed()
 
 
 if __name__ == "__main__":

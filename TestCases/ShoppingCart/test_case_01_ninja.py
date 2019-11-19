@@ -49,10 +49,7 @@ class ShoppingCartTest01Ninja(unittest.TestCase):
         # Verify if the selected product is present in shopping cart
         element_2 = self.driver.find_element_by_xpath(ShoppingCartNinja.elem_2)
         elem_2 = element_2.text
-        if elem_1 == elem_2:
-            print("OK. User can view the selected book in the shopping cart.")
-        else:
-            sys.exit("ERROR. User cannot view the selected book in the shopping cart.")
+        assert elem_1 == elem_2, "ERROR. User cannot view the selected book in the shopping cart."
 
 
 if __name__ == "__main__":

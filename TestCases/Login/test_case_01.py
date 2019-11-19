@@ -1,7 +1,9 @@
 import unittest
 import HtmlTestRunner
 from selenium import webdriver
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from PageObjects.Login import Login
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -24,16 +26,14 @@ class LoginTest01(unittest.TestCase):
         cls.driver.quit()
 
     def test_login_01(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
         # Verifying if the link "Sign In" was opened
-        element = self.driver.find_elements_by_xpath(Login.yes_pass_selected)
-        if len(element) > 0:
-            print("OK. Radio button 'Yes, I have a password' is selected by default.")
-        else:
-            sys.exit("ERROR. Radio button 'Yes, I have a password' is not selected by default.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.yes_pass_selected)))
+        assert element.is_displayed(), "ERROR. Radio button 'Yes, I have a password' is not selected by default."
 
 
 if __name__ == "__main__":

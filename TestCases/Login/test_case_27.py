@@ -1,7 +1,9 @@
 import unittest
 import HtmlTestRunner
-import time
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from PageObjects.Login import Login
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -20,13 +22,13 @@ class LoginTest27(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_login_27(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Click "Sign In" link
         login.close_icon()
@@ -35,18 +37,12 @@ class LoginTest27(unittest.TestCase):
         login.click_new_to_site()
         # Check if password field disappeared, if it's present => error
         element = self.driver.find_elements_by_xpath(Login.password_field)
-        if len(element) > 0:
-            sys.exit("ERROR. The password field didn't disappear.")
-        else:
-            print("OK. The password field disappeared.")
+        assert len(element) == 0, "ERROR. The password field didn't disappear."
         # Select "Yes, I have a password"
         login.click_new_to_site()
         # Check if password field reappeared, if not =? error
-        element = self.driver.find_elements_by_xpath(Login.password_field)
-        if len(element) > 0:
-            print("OK. The password field reappeared.")
-        else:
-            sys.exit("ERROR. The password field didn't reappear.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.password_field)))
+        assert element.is_displayed(), "ERROR. The password field didn't reappear."
 
 
 if __name__ == "__main__":

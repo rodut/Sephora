@@ -57,25 +57,13 @@ class MyAccountTest05Ninja(unittest.TestCase):
         myacc.click_continue_button()
         # Verify if error messages are present for every field
         element = self.driver.find_element_by_xpath(MyAccountNinja.warning_first_name).is_displayed()
-        if element:
-            print("OK. 'First Name' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'First Name' warning text is not displayed.")
+        assert element, "ERROR. 'First Name' warning text is not displayed."
         element = self.driver.find_element_by_xpath(MyAccountNinja.warning_last_name).is_displayed()
-        if element:
-            print("OK. 'Last Name' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'Last Name' warning text is not displayed.")
+        assert element, "ERROR. 'Last Name' warning text is not displayed."
         element = self.driver.find_element_by_xpath(MyAccountNinja.warning_email).is_displayed()
-        if element:
-            print("OK. 'E-mail' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'E-mail' warning text is not displayed.")
+        assert element, "ERROR. 'E-mail' warning text is not displayed."
         element = self.driver.find_element_by_xpath(MyAccountNinja.warning_telephone).is_displayed()
-        if element:
-            print("OK. 'Telephone' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'Telephone' warning text is not displayed.")
+        assert element, "ERROR. 'Telephone' warning text is not displayed."
 
 
 if __name__ == "__main__":

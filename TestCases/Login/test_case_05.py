@@ -1,6 +1,9 @@
 import unittest
 import HtmlTestRunner
 from PageObjects.Login import Login
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -23,28 +26,20 @@ class LoginTest05(unittest.TestCase):
         cls.driver.quit()
 
     def test_login_05(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
         # Verifying if 'What is your email address' text is present.
-        element = self.driver.find_elements_by_xpath(Login.what_email_address)
-        if len(element) > 0:
-            print("OK. 'What is your email address' text is present.")
-        else:
-            sys.exit("ERROR. 'What is your email address' text is not present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.what_email_address)))
+        assert element.is_displayed(), "ERROR. 'What is your email address' text is not present."
         # Verifying if 'Do you have a sephora.com password?' text is present.
-        element = self.driver.find_elements_by_xpath(Login.have_sephora_password)
-        if len(element) > 0:
-            print("OK. 'Do you have a sephora.com password?' text is present.")
-        else:
-            sys.exit("ERROR. 'Do you have a sephora.com password?' text is not present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.have_sephora_password)))
+        assert element.is_displayed(), "ERROR. 'Do you have a sephora.com password?' text is not present."
         # Verifying if 'Have a Beauty Insider account?' text is present.
-        element = self.driver.find_elements_by_xpath(Login.have_beauty_text)
-        if len(element) > 0:
-            print("OK. 'Have a Beauty Insider account?' text is present.")
-        else:
-            sys.exit("ERROR. 'Have a Beauty Insider account?' text is not present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.have_beauty_text)))
+        assert element.is_displayed(), "ERROR. 'Have a Beauty Insider account?' text is not present."
 
 
 if __name__ == "__main__":

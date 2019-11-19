@@ -23,7 +23,6 @@ class RegisterTest016(unittest.TestCase):
         reg = Register(cls.driver)
         cls.driver.get(reg.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -42,11 +41,8 @@ class RegisterTest016(unittest.TestCase):
         # Click on "Yes, join Sephora’s free rewards program and earn points on every purchase" checkbox
         reg.click_yes_join_sephora()
         # Verify if "Subscribe to Sephora emails" is not clickable
-        element = self.driver.find_elements_by_xpath(reg.subscribe_emails_disabled)
-        if len(element) > 0:
-            print("OK. Checkbox is not clickable.")
-        else:
-            sys.exit("ERROR. Checkbox is clickable.")
+        element = self.driver.find_element_by_xpath(reg.subscribe_emails_disabled)
+        assert element, "ERROR. Checkbox is clickable."
 
 
 if __name__ == "__main__":

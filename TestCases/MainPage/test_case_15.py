@@ -33,22 +33,16 @@ class MainPageTest15(unittest.TestCase):
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.instagram_icon)))
         element.click()
         # Check if the Sefora's instagram page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_instagram)))
-        if len(element) > 0:
-            print("OK. Sephora's Instagram page was opened.")
-        else:
-            sys.exit("ERROR. Sephora's Instagram page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_instagram)))
+        assert element.is_displayed(), "ERROR. Sephora's Instagram page wasn't opened."
         # Click back button on browser
         main.browser_back_button()
         # Click on youtube icon (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.youtube_icon)))
         element.click()
         # Check if the Sefora's youtube page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_youtube)))
-        if len(element) > 0:
-            print("OK. Sephoria's Youtube page was opened.")
-        else:
-            sys.exit("ERROR. Sephoria's Youtube page wasn't opened.")
+        wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_youtube)))
+        assert self.driver.title == "Sephora - YouTube", "ERROR. Sephoria's Youtube page wasn't opened."
 
 
 if __name__ == "__main__":

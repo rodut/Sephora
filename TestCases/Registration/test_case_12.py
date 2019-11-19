@@ -29,10 +29,7 @@ class RegisterTest012(unittest.TestCase):
         reg.click_register()
         # Verify that the password is in encrypted form when entered
         element = self.driver.find_element_by_xpath(Register.password_type).is_displayed()
-        if element:
-            print("OK. Password field type is 'password', so the field is encrypted by default.")
-        else:
-            sys.exit("ERROR. Password field type is not 'password', so the field is not encrypted by default.")
+        assert element, "ERROR. Password field type is not 'password', so the field is not encrypted by default."
 
 
 if __name__ == "__main__":

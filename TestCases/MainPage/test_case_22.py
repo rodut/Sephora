@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+import time
 from PageObjects.MainPage import MainPage
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -35,12 +36,9 @@ class MainPageTest22(unittest.TestCase):
         # From "Sort by:" select "Price High to Low"
         main.click_dropdown_sort_by()
         main.click_price_high_low()
-        # Verify if all the prices are listed correctly, from high to low
+        # Verify if "Price High to Low" was selected
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_high_low)))
-        if element:
-            print("OK. Products are selected from high to low.")
-        else:
-            sys.exit("ERROR. Products are not selected from high to low.")
+        assert element, "ERROR. Products are not selected from high to low."
 
 
 if __name__ == "__main__":

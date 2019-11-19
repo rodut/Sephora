@@ -18,7 +18,6 @@ class RegisterTest015(unittest.TestCase):
         reg = Register(cls.driver)
         cls.driver.get(reg.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -31,17 +30,15 @@ class RegisterTest015(unittest.TestCase):
         reg.click_register()
         # Click "terms" link
         reg.click_terms()
-        time.sleep(3)
+        time.sleep(1)
         # Switch to new opened window
         window_after = self.driver.window_handles[1]
         self.driver.switch_to.window(window_after)
         time.sleep(1)
         print(self.driver.title)
         # Verify if "terms" link was opened
-        if self.driver.title == "Google Terms of Service – Privacy & Terms – Google":
-            print("OK. User can see 'Google Terms of Service' page.")
-        else:
-            sys.exit("ERROR. User cannot see 'Google Terms of Service' page.")
+        assert self.driver.title == "Google Terms of Service – Privacy & Terms – Google", "ERROR. User cannot see 'Google Terms of Service' page."
+
 
 
 if __name__ == "__main__":

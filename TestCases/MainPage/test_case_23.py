@@ -25,7 +25,6 @@ class MainPageTest23(unittest.TestCase):
         cls.driver.quit()
 
     def test_mainpage_23(self):
-        wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
         main.click_close_x_icon()
         # In the search bar type "shaving" and hit enter

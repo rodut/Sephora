@@ -28,17 +28,13 @@ class MainPageTest13(unittest.TestCase):
     def test_mainpage_13(self):
         wait = WebDriverWait(self.driver, 10)
         main = MainPage(self.driver)
-
         main.click_close_x_icon()
         # Click on "Sephora Global Sites" link (bottom of the page)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, MainPage.sephora_global_link)))
         element.click()
         # Verify if the right page was opened
-        element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_sephora_global)))
-        if len(element) > 0:
-            print("OK. 'Sephora Global Sites' page was opened.")
-        else:
-            sys.exit("ERROR. 'Sephora Global Sites' page wasn't opened.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_sephora_global)))
+        assert element.is_displayed(), "ERROR. 'Sephora Global Sites' page wasn't opened."
         # Click back button on browser
         main.browser_back_button()
         # Click on "Sephoria" link (bottom of the page)
@@ -48,10 +44,7 @@ class MainPageTest13(unittest.TestCase):
         # Go to next windows, and verify if the right page was opened
         window_after = self.driver.window_handles[1]
         self.driver.switch_to.window(window_after)
-        if self.driver.title == "Sephoria House of Beauty | Buy Your Tickets Here!":
-            print("OK. 'Sephoria' page was opened.")
-        else:
-            sys.exit("ERROR. 'Sephoria' page wasn't opened.")
+        assert self.driver.title == "Sephoria House of Beauty | Buy Your Tickets Here!", "ERROR. 'Sephoria' page wasn't opened."
 
 
 if __name__ == "__main__":

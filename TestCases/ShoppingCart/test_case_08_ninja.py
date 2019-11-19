@@ -20,7 +20,6 @@ class ShoppingCartTest08Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = ShoppingCartNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -63,10 +62,11 @@ class ShoppingCartTest08Ninja(unittest.TestCase):
             x = price.text
             y = x.replace("$", "")
             total_price = float(y)
-        if suma == total_price:
-            print("OK. The sum is correct.")
-        else:
-            sys.exit("ERROR. The sum is incorrect.")
+        assert suma == total_price, "ERROR. The sum is incorrect."
+        # Delete items in "Shopping Cart", it must be empty for the next test cases
+        shopcart.click_remove_button()
+        self.driver.refresh()
+        shopcart.click_remove_button()
 
 
 if __name__ == "__main__":

@@ -33,10 +33,7 @@ class MainPageTest03(unittest.TestCase):
         main.click_track_order_link()
         # Check if page changed to "ORDER STATUS & HISTORY", if no => ERROR
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_track_order)))
-        if element:
-            print("OK. Page changed to 'ORDER STATUS & HISTORY'.")
-        else:
-            sys.exit("ERROR. Page did not changed to 'ORDER STATUS & HISTORY'.")
+        assert element.is_displayed(), "ERROR. Page did not changed to 'ORDER STATUS & HISTORY'."
 
 
 if __name__ == "__main__":

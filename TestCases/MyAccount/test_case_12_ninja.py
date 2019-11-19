@@ -2,6 +2,9 @@ import unittest
 import HtmlTestRunner
 import time
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from PageObjects.MyAccountNinja import MyAccountNinja
 import sys
 
@@ -32,6 +35,7 @@ class MyAccountTest12Ninja(unittest.TestCase):
         cls.driver.quit()
 
     def test_my_account_12_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         myacc = MyAccountNinja(self.driver)
         # Click on "My Account" link
         myacc.click_my_account_link()
@@ -55,28 +59,15 @@ class MyAccountTest12Ninja(unittest.TestCase):
         myacc.set_telephone(self.telephone)
         # Click "Continue" button
         myacc.click_continue_button()
-        time.sleep(1)
         # Verify if error messages are present for every field
-        element = self.driver.find_element_by_xpath(MyAccountNinja.warning_first_name).is_displayed()
-        if element:
-            print("OK. 'First Name' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'First Name' warning text is not displayed.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MyAccountNinja.warning_first_name))).is_displayed()
+        assert element, "ERROR. 'First Name' warning text is not displayed."
         element = self.driver.find_element_by_xpath(MyAccountNinja.warning_last_name).is_displayed()
-        if element:
-            print("OK. 'Last Name' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'Last Name' warning text is not displayed.")
+        assert element, "ERROR. 'Last Name' warning text is not displayed."
         element = self.driver.find_element_by_xpath(MyAccountNinja.warning_email).is_displayed()
-        if element:
-            print("OK. 'E-mail' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'E-mail' warning text is not displayed.")
+        assert element, "ERROR. 'E-mail' warning text is not displayed."
         element = self.driver.find_element_by_xpath(MyAccountNinja.warning_telephone).is_displayed()
-        if element:
-            print("OK. 'Telephone' warning text is displayed.")
-        else:
-            sys.exit("ERROR. 'Telephone' warning text is not displayed.")
+        assert element, "ERROR. 'Telephone' warning text is not displayed."
 
 
 if __name__ == "__main__":

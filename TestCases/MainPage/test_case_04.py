@@ -33,10 +33,7 @@ class MainPageTest04(unittest.TestCase):
         main.click_find_store_link()
         # Check if page changed to "Find a Sephora", if no => ERROR
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_find_store)))
-        if element:
-            print("OK. Page changed to 'Find a Sephora'.")
-        else:
-            sys.exit("ERROR. Page did not changed to 'Find a Sephora'.")
+        assert element.is_displayed(), "ERROR. Page did not changed to 'Find a Sephora'."
 
 
 if __name__ == "__main__":

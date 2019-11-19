@@ -42,11 +42,8 @@ class RegisterTest008(unittest.TestCase):
         # Click "REGISTER" button
         reg.click_register_button()
         # Verify that the validation of email field by entering incorrect email address
-        element = self.driver.find_elements_by_xpath(Register.alert_incorrect_email)
-        if len(element) > 0:
-            print("OK. System generates a validation error message when entering incorrect email format.")
-        else:
-            sys.exit("Error. System doesn't generate a validation error message when entering incorrect email format.")
+        element = self.driver.find_element_by_xpath(Register.alert_incorrect_email)
+        assert element.is_displayed(), "Error. System doesn't generate a validation error message when entering incorrect email format."
 
 
 if __name__ == "__main__":

@@ -38,10 +38,7 @@ class MainPageTest25(unittest.TestCase):
         main.click_price_low_high()
         # Verify if all the prices are listed correctly, from low to high
         element = wait.until(EC.presence_of_element_located((By.XPATH, MainPage.verify_low_high)))
-        if element:
-            print("OK. Products are selected from low to high.")
-        else:
-            sys.exit("ERROR. Products are not selected from low to high.")
+        assert element, "ERROR. Products are not selected from low to high."
 
 
 if __name__ == "__main__":

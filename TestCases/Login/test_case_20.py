@@ -1,6 +1,8 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from PageObjects.Login import Login
 import sys
@@ -19,13 +21,13 @@ class LoginTest20(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_login_20(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Click "Sign In" link
         login.close_icon()
@@ -34,21 +36,14 @@ class LoginTest20(unittest.TestCase):
         login.set_email_address(self.email_address)
         # Click "Forgot?" link
         login.click_forgot_link()
-        time.sleep(1)
         # Check if the entered email is present in email field
-        element = self.driver.find_elements_by_xpath(Login.check_forgot_email)
-        if len(element) > 0:
-            print("OK. Previously entered email is present in email field.")
-        else:
-            sys.exit("ERROR. Previously entered email is not present in email field.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.check_forgot_email)))
+        assert element.is_displayed(), "ERROR. Previously entered email is not present in email field."
         # Click "Send Email" button
         login.click_send_email_button()
         # Check if a message with "reset password" is present
-        element = self.driver.find_elements_by_xpath(Login.reset_password)
-        if len(element) > 0:
-            print("OK. A message with 'Reset Password' is present")
-        else:
-            sys.exit("ERROR. There is no message with 'Reset Password' present")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.reset_password)))
+        assert element.is_displayed(), "ERROR. There is no message with 'Reset Password' present"
 
 
 if __name__ == "__main__":

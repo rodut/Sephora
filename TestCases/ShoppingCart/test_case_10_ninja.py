@@ -60,10 +60,10 @@ class ShoppingCartTest10Ninja(unittest.TestCase):
         shopcart.click_shopping_cart()
         # Verify if the selected product is still in the "Shopping Cart"
         element = self.driver.find_element_by_xpath(ShoppingCartNinja.verify_product).is_displayed()
-        if element:
-            print("OK. The product is still in shopping cart.")
-        else:
-            sys.exit("ERROR. The product is not in shopping cart.")
+        assert element, "ERROR. The product is not in shopping cart."
+        # Delete items in "Shopping Cart", it must be empty for the next test cases
+        self.driver.refresh()
+        shopcart.click_remove_button()
 
 
 if __name__ == "__main__":

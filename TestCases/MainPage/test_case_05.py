@@ -31,10 +31,7 @@ class MainPageTest05(unittest.TestCase):
         main.click_close_x_icon()
         # Check if there are 18 products under "Just Arrived", if no => ERROR
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.just_arrived_items)))
-        if len(element) == 18:
-            print("OK. There are 18 products under 'Just Arrived'.")
-        else:
-            sys.exit("ERROR. There are more/less than 18 products under 'Just Arrived'.")
+        assert len(element) == 18, "ERROR. There are more/less than 18 products under 'Just Arrived'."
 
 
 if __name__ == "__main__":

@@ -1,6 +1,8 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from PageObjects.RegisterNinja import RegisterNinja
 import sys
@@ -30,6 +32,7 @@ class RegisterTest003Ninja(unittest.TestCase):
         cls.driver.quit()
 
     def test_register_07_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         reg = RegisterNinja(self.driver)
         # Click on "My Account" link
         reg.click_my_account_link()
@@ -51,13 +54,9 @@ class RegisterTest003Ninja(unittest.TestCase):
         reg.click_privacy_policy_checkbox()
         # Click "Continue" button
         reg.click_continue_button()
-        time.sleep(1)
         # Verify that system generates a validation error message when entering existing email
-        element = self.driver.find_element_by_xpath(RegisterNinja.warning_email).is_displayed()
-        if element:
-            print("OK. A warning message was displayed.")
-        else:
-            sys.exit("ERROR. No warning message was displayed.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, RegisterNinja.warning_email)))
+        assert element.is_displayed(), "ERROR. No warning message was displayed."
 
 
 if __name__ == "__main__":

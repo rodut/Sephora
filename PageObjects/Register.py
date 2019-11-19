@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 __author__ = "Chirosca Tudor"
 __email__ = "tudorache@gmail.com"
@@ -14,7 +17,7 @@ class Register:
     last_name_id = "//*[@id='lastName']"
     email_address_id = "//*[@id='register_email']"
     password_id = "//*[@id='password']"
-    register_button = "//*[@class='css-13nlo6e ']"
+    register_button = "//button[@type='submit' and text()='Register']"
     register_eye_icon = "//*[@data-comp='IconEye Icon Box']"
     password_text = "//input[@type='text' and @name='password']"
     password_asterisks = "//input[@type='password' and @name='password']"
@@ -68,7 +71,7 @@ class Register:
         self.driver.find_element_by_xpath(self.password_id).send_keys(password)
 
     def click_register_button(self):
-        self.driver.find_element_by_xpath(self.register_button).click()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, Register.register_button))).click()
 
     def click_register_eye_icon(self):
         self.driver.find_element_by_xpath(self.register_eye_icon).click()

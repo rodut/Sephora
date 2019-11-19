@@ -29,10 +29,7 @@ class RegisterTest011(unittest.TestCase):
         reg.click_register()
         # Verify if "Subscribe to Sephora emails" checkbox is selected by default
         element = self.driver.find_element_by_xpath(Register.subscribe_emails).is_selected()
-        if element:
-            print("OK. 'Subscribe to Sephora emails' check-box is selected by default.")
-        else:
-            sys.exit("ERROR. 'Subscribe to Sephora emails' check-box is not selected by default.")
+        assert element, "ERROR. 'Subscribe to Sephora emails' check-box is not selected by default."
 
 
 if __name__ == "__main__":

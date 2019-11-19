@@ -1,6 +1,5 @@
 import unittest
 import HtmlTestRunner
-import time
 from selenium import webdriver
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
@@ -18,7 +17,6 @@ class ShoppingCartTest07Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = ShoppingCartNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -28,19 +26,14 @@ class ShoppingCartTest07Ninja(unittest.TestCase):
         shopcart = ShoppingCartNinja(self.driver)
         # Add to cart a random item
         shopcart.click_add_item_1()
-        time.sleep(1)
         # Click on black button (right up corner)
         shopcart.click_black_button_id()
         # Click on "Remove" button
         shopcart.click_black_button_remove()
-        time.sleep(1)
         shopcart.click_black_button_id()
         # Verify if the item was removed
         element = self.driver.find_element_by_xpath(ShoppingCartNinja.black_button_empty_text).is_displayed()
-        if element:
-            print("OK. User removed the item from shopping cart successfully.")
-        else:
-            sys.exit("ERROR. The item hasn't been removed from shopping cart.")
+        assert element, "ERROR. The item hasn't been removed from shopping cart."
 
 
 if __name__ == "__main__":

@@ -66,28 +66,16 @@ class MyAccountTest06Ninja(unittest.TestCase):
         element = elem.get_attribute("value")
         time.sleep(2)
         #
-        if element == new_first_name:
-            print("OK. First name has been changed successfully.")
-        else:
-            sys.exit("ERROR. First name hasn't been changed.")
+        assert element == new_first_name, "ERROR. First name hasn't been changed."
         elem = self.driver.find_element_by_xpath(MyAccountNinja.last_name_field)
         element = elem.get_attribute("value")
-        if element == new_last_name:
-            print("OK. Last name has been changed successfully.")
-        else:
-            sys.exit("ERROR. Last name hasn't been changed.")
+        assert element == new_last_name, "ERROR. Last name hasn't been changed."
         elem = self.driver.find_element_by_xpath(MyAccountNinja.email_field)
         element = elem.get_attribute("value")
-        if element == new_email_address:
-            print("OK. E-Mail has been changed successfully.")
-        else:
-            sys.exit("ERROR. E-Mail hasn't been changed.")
+        assert element == new_email_address, "ERROR. E-Mail hasn't been changed."
         elem = self.driver.find_element_by_xpath(MyAccountNinja.telephone_field)
         element = elem.get_attribute("value")
-        if element == new_telephone:
-            print("OK. Telephone has been changed successfully.")
-        else:
-            sys.exit("ERROR. Telephone hasn't been changed.")
+        assert element == new_telephone, "ERROR. Telephone hasn't been changed."
         myacc.set_new_email(self.email_address)
         myacc.click_continue_button()
 

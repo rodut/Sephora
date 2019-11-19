@@ -41,10 +41,7 @@ class MainPageTest17(unittest.TestCase):
         makeup.click()
 #        actions.move_to_element(shop).move_to_element(makeup).click().perform()
         # Verify if the right page was opened
-        if self.driver.title == "Makeup | Sephora":
-            print("OK. Makeup page was opened.")
-        else:
-            sys.exit("ERROR. Makeup page wasn't opened.")
+        assert self.driver.title == "Makeup | Sephora", "ERROR. Makeup page wasn't opened."
         # Go back to the main page
         main.click_main_page()
         # Mouseover "SHOP" dropdown box
@@ -56,10 +53,7 @@ class MainPageTest17(unittest.TestCase):
         actions.move_to_element(skincare).perform()
         skincare.click()
         # Verify if the right page was opened
-        if self.driver.title == "Skincare Products | Sephora":
-            print("OK. Skincare page was opened.")
-        else:
-            sys.exit("ERROR. Skincare page wasn't opened.")
+        assert self.driver.title == "Skincare Products | Sephora", "ERROR. Skincare page wasn't opened."
 
 
 if __name__ == "__main__":

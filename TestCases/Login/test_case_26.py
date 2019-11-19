@@ -35,10 +35,7 @@ class LoginTest26(unittest.TestCase):
         login.click_new_to_site()
         # Check if password field disappeared, if it's present => error
         element = self.driver.find_elements_by_xpath(Login.password_field)
-        if len(element) > 0:
-            sys.exit("ERROR. The password field didn't disappear.")
-        else:
-            print("OK. The password field disappeared.")
+        assert len(element) == 0, "ERROR. The password field didn't disappear."
 
 
 if __name__ == "__main__":

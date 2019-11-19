@@ -31,10 +31,7 @@ class MainPageTest07(unittest.TestCase):
         main.click_close_x_icon()
         # Check if  there are 18 products under "Palettes and Value Sets", if no => ERROR
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.palettes_value_items)))
-        if len(element) == 18:
-            print("OK. There are 18 products under 'Palettes and Value Sets'.")
-        else:
-            sys.exit("ERROR. There are more/less than 18 products under 'Palettes and Value Sets'.")
+        assert len(element) == 18, "ERROR. There are more/less than 18 products under 'Palettes and Value Sets'."
 
 
 if __name__ == "__main__":

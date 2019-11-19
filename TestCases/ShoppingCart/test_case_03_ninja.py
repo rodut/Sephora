@@ -1,10 +1,13 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
+import time
 
 __author__ = "Tudor C"
 __email__ = "tudorache@gmail.com"
@@ -20,13 +23,13 @@ class ShoppingCartTest03Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = ShoppingCartNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_shopping_cart_03_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         shopcart = ShoppingCartNinja(self.driver)
         # Click on "My Account" link
         shopcart.click_my_account_link()
@@ -49,19 +52,13 @@ class ShoppingCartTest03Ninja(unittest.TestCase):
         # Verify if selected product is in "Shopping Cart"
         element_2 = self.driver.find_element_by_xpath(ShoppingCartNinja.elem_2)
         elem_2 = element_2.text
-        if elem_1 == elem_2:
-            print("OK. User can view the selected book in the shopping cart.")
-        else:
-            sys.exit("ERROR. User cannot view the selected book in the shopping cart.")
+        assert elem_1 == elem_2, "ERROR. User cannot view the selected book in the shopping cart."
         # Click on "Remove" button
         shopcart.click_remove_button()
-        time.sleep(1)
         # Verify if the product was deleted
-        element_2 = self.driver.find_elements_by_xpath(ShoppingCartNinja.elem_2)
-        if len(element_2) > 0:
-            sys.exit("ERROR. The product wasn't remove from the shopping cart.")
-        else:
-            print("OK. The product was successfully removed from the shopping cart.")
+#        element_2 = wait.until(EC.presence_of_element_located((By.XPATH, ShoppingCartNinja.elem_2)))
+        element_2 = wait.until(EC.invisibility_of_element_located((By.XPATH, ShoppingCartNinja.elem_2)))
+        assert element_2, "ERROR. The product wasn't remove from the shopping cart."
 
 
 if __name__ == "__main__":

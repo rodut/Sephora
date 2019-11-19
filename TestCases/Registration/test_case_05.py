@@ -43,26 +43,14 @@ class RegisterTest005(unittest.TestCase):
         # Click on "REGISTER" button
         reg.click_register_button()
         # Verify that entering blank spaces on mandatory fields lead to validation error message
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_first_name)
-        if len(element) > 0:
-            print("OK. Alert message for 'First Name' is present.")
-        else:
-            sys.exit("Error. Alert message for 'First Name' is not present.")
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_last_name)
-        if len(element) > 0:
-            print("OK. Alert message for 'Last Name' is present.")
-        else:
-            sys.exit("Error. Alert message for 'Last Name' is not present.")
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_email_address)
-        if len(element) > 0:
-            print("OK. Alert message for 'Email Address' is present.")
-        else:
-            sys.exit("Error. Alert message for 'Email Address' is not present.")
-        element = self.driver.find_elements_by_xpath(Register.alert_msg_password)
-        if len(element) > 0:
-            print("OK. Alert message for 'Password' is present.")
-        else:
-            sys.exit("Error. Alert message for 'Password' is not present.")
+        element = self.driver.find_element_by_xpath(Register.alert_msg_first_name)
+        assert element.is_displayed()
+        element = self.driver.find_element_by_xpath(Register.alert_msg_last_name)
+        assert element.is_displayed()
+        element = self.driver.find_element_by_xpath(Register.alert_msg_email_address)
+        assert element.is_displayed()
+        element = self.driver.find_element_by_xpath(Register.alert_msg_password)
+        assert element.is_displayed()
 
 
 if __name__ == "__main__":

@@ -7,6 +7,7 @@ import unittest
 import HtmlTestRunner
 from selenium import webdriver
 from PageObjects.Register import Register
+import time
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
 
@@ -32,10 +33,7 @@ class RegisterTest002(unittest.TestCase):
         # Verify if all the required/mandatory fields are marked with *
         xpath = "//*[@for='firstName']"
         element = self.driver.execute_script("return window.getComputedStyle(document.querySelector('.css-1tuyf6g'),':after').getPropertyValue('content')")
-        if element in xpath:
-            print("OK. The field have asterisk so it's a mandatory field.")
-        else:
-            sys.exit("Error. the field doesn't have asterisk, so it's not a mandatory field.")
+        assert element in xpath, "Error. the field doesn't have asterisk, so it's not a mandatory field."
 
 
 if __name__ == "__main__":

@@ -34,18 +34,12 @@ class RegisterTest09(unittest.TestCase):
         reg.click_register_eye_icon()
         # Verify if clicking on "eye" icon will show the password
         element = self.driver.find_elements_by_xpath(Register.password_text)
-        if len(element) > 0:
-            print("OK. User can view his password as text.")
-        else:
-            sys.exit("Error. user cannot view his password as text.")
+        assert element, "Error. user cannot read his password as text."
         # Click on "eye" icon the second time
         reg.click_register_eye_icon()
         # Verify is clicking the second time will hide the password
         element = self.driver.find_elements_by_xpath(Register.password_asterisks)
-        if len(element) > 0:
-            print("OK. User can view his password as asterisks.")
-        else:
-            sys.exit("Error. User cannot view his password by asterisks.")
+        assert element, "Error. User read view his password."
 
 
 if __name__ == "__main__":

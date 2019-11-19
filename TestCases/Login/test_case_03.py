@@ -1,6 +1,9 @@
 import unittest
 import HtmlTestRunner
 from PageObjects.Login import Login
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -23,28 +26,20 @@ class LoginTest03(unittest.TestCase):
         cls.driver.quit()
 
     def test_login_03(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Clicking "Sign In" link
         login.close_icon()
         login.click_signin()
         # Verifying if 'Password' field is present.
-        element = self.driver.find_elements_by_xpath(Login.password_field)
-        if len(element) > 0:
-            print("OK. 'Password' field is present.")
-        else:
-            sys.exit("ERROR. 'Password' field is not present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.password_field)))
+        assert element.is_displayed(), "ERROR. 'Password' field is not present."
         # Verifying if 'Forgot?' link is present.
-        element = self.driver.find_elements_by_xpath(Login.forgot_link)
-        if len(element) > 0:
-            print("OK. 'Forgot?' link is present.")
-        else:
-            sys.exit("ERROR. 'Forgot?' link is not present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.forgot_link)))
+        assert element.is_displayed(), "ERROR. 'Forgot?' link is not present."
         # Verifying if 'Cancel' button is present.
-        element = self.driver.find_elements_by_xpath(Login.cancel_button)
-        if len(element) > 0:
-            print("OK. 'Cancel' button is present.")
-        else:
-            sys.exit("ERROR. 'Cancel' button is not present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.cancel_button)))
+        assert element.is_displayed(), "ERROR. 'Cancel' button is not present."
 
 
 if __name__ == "__main__":

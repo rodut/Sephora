@@ -1,8 +1,9 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from PageObjects.Login import Login
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -20,13 +21,13 @@ class LoginTest17(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_login_17(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Click "Sign In" link
         login.close_icon()
@@ -37,13 +38,9 @@ class LoginTest17(unittest.TestCase):
         login.click_new_to_site()
         # Click "Continue" button
         login.click_continue()
-        time.sleep(1)
         # Check if an error message appears, if no => error
-        element = self.driver.find_elements_by_xpath(Login.alert_incorrect_pass)
-        if len(element) > 0:
-            print("OK. 'An account already exists' alert message appears.")
-        else:
-            sys.exit("ERROR. 'An account already exists' alert message doesn't appear.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.alert_incorrect_pass)))
+        assert element.is_displayed(), "ERROR. 'An account already exists' alert message doesn't appear."
 
 
 if __name__ == "__main__":

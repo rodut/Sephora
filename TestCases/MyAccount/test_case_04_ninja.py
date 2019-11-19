@@ -29,35 +29,23 @@ class MyAccountTest04Ninja(unittest.TestCase):
 
     def test_my_account_04_ninja(self):
         myacc = MyAccountNinja(self.driver)
-
         # Click on "My Account" link
         myacc.click_my_account_link()
-
         # Click on "Login" link
         myacc.click_login_link()
-
         # Enter a valid email address
         myacc.set_email(self.email_address)
-
         # Enter a valid password
         myacc.set_password(self.password)
-
         # Click on "Login" button
         myacc.click_login_button()
-
         # Check if the link under "Newsletter" text is displayed
         element = self.driver.find_element_by_xpath(MyAccountNinja.newsletter_link).is_displayed()
-        if element:
-            print("OK. 'Newsletter' link is displayed.")
-        else:
-            sys.exit("ERROR. 'Newsletter' link is not displayed.")
-
+        assert element, "ERROR. 'Newsletter' link is not displayed."
+        # Click on newsletter link
         myacc.click_newsletter_link()
         element = self.driver.find_element_by_xpath(MyAccountNinja.verify_newsletter).is_displayed()
-        if element:
-            print("OK. 'Newsletter' link is working.")
-        else:
-            sys.exit("ERROR. 'Newsletter' link is broken.")
+        assert element, "ERROR. 'Newsletter' link is broken."
 
 
 if __name__ == "__main__":

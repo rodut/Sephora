@@ -43,10 +43,7 @@ class MainPageTest26(unittest.TestCase):
         main.scroll_down_page_lights()
         # Check to see if the number next to the category matches the number of products displayed (16)
         element = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_skincare_2)))
-        if len(element) == skin_n1:
-            print("OK. User can view only that particular category.")
-        else:
-            sys.exit("ERROR. User can view only that particular category.")
+        assert len(element) == skin_n1, "ERROR. User can view only that particular category."
 
 
 if __name__ == "__main__":

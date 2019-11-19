@@ -1,6 +1,5 @@
 import unittest
 import HtmlTestRunner
-import time
 from selenium import webdriver
 from PageObjects.ShoppingCartNinja import ShoppingCartNinja
 import sys
@@ -21,7 +20,6 @@ class ShoppingCartTest09Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = ShoppingCartNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -64,10 +62,10 @@ class ShoppingCartTest09Ninja(unittest.TestCase):
             z = y.replace(".00", "")
             w = z.replace(",", "")
             total_price = int(w)
-        if new_price == total_price:
-            print("OK. The sum is correct.")
-        else:
-            sys.exit("ERROR. The sum is incorrect.")
+        assert new_price == total_price, "ERROR. The sum is incorrect."
+        # Delete items in "Shopping Cart", it must be empty for the next test cases
+        self.driver.refresh()
+        shopcart.click_remove_button()
 
 
 if __name__ == "__main__":

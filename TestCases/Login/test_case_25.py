@@ -1,6 +1,5 @@
 import unittest
 import HtmlTestRunner
-import time
 from selenium import webdriver
 from PageObjects.Login import Login
 import sys
@@ -20,7 +19,6 @@ class LoginTest25(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -35,10 +33,7 @@ class LoginTest25(unittest.TestCase):
         login.click_cancel_button()
         # Check if user returns to main page
         element = self.driver.find_elements_by_xpath(Login.check_please_signin)
-        if len(element) > 0:
-            sys.exit("ERROR. User didn't return to the main page.")
-        else:
-            print("OK. User returned to the main page.")
+        assert len(element) == 0, "ERROR. User didn't return to the main page."
 
 
 if __name__ == "__main__":

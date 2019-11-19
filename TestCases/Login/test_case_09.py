@@ -1,7 +1,9 @@
 import unittest
 import HtmlTestRunner
 from selenium import webdriver
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from PageObjects.Login import Login
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -19,13 +21,13 @@ class LoginTest09(unittest.TestCase):
         login = Login(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_login_09(self):
+        wait = WebDriverWait(self.driver, 10)
         login = Login(self.driver)
         # Clicking "Sign In" link
         login.close_icon()
@@ -37,11 +39,8 @@ class LoginTest09(unittest.TestCase):
         # Click on "Continue" button
         login.click_continue()
         # Verify if user cannot login with empty password
-        element = self.driver.find_elements_by_xpath(Login.alert_pass_missing)
-        if len(element) > 0:
-            print("OK. Missing password error text is present.")
-        else:
-            sys.exit("ERROR. password email error text is no present.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, Login.alert_pass_missing)))
+        assert element.is_displayed(), "ERROR. password email error text is no present."
 
 
 if __name__ == "__main__":

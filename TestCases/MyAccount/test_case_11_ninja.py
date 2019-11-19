@@ -1,5 +1,8 @@
 import unittest
 import HtmlTestRunner
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium import webdriver
 from PageObjects.MyAccountNinja import MyAccountNinja
@@ -26,13 +29,13 @@ class MyAccountTest11Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         shopcart = MyAccountNinja(cls.driver)
         cls.driver.get(shopcart.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_my_account_11_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         myacc = MyAccountNinja(self.driver)
         # Click on "My Account" link
         myacc.click_my_account_link()
@@ -65,20 +68,13 @@ class MyAccountTest11Ninja(unittest.TestCase):
         time.sleep(1)
         # Verify if the new address was added
         element = self.driver.find_element_by_xpath(MyAccountNinja.verify_new_address)
-        check = "Bobbi Starr\n123 Main St.\nDallas, Texas 55555\nUnited States"
-        if check == element.text:
-            print("OK. The new address was added.")
-        else:
-            sys.exit("ERROR. The new address wasn't added.")
+        check = "Jacky Nicholsons\n123 Main St.\nDallas, Texas 55555\nUnited States"
+        assert check == element.text, "ERROR. The new address wasn't added."
         # Click on "Delete" button
         myacc.click_new_address_delete_button()
-        time.sleep(1)
         # Verify if a warning message popped out
-        element = self.driver.find_element_by_xpath(MyAccountNinja.warning_delete_address)
-        if element:
-            print("OK. The user cannot delete his default address.")
-        else:
-            sys.exit("ERROR. The user can delete his default address.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, MyAccountNinja.warning_delete_address)))
+        assert element.is_displayed(), "ERROR. The user can delete his default address."
 
 
 if __name__ == "__main__":

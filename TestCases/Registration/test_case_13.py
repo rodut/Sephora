@@ -31,10 +31,7 @@ class RegisterTest013(unittest.TestCase):
         reg.click_terms_conditions()
         # Verify if "Terms & Conditions" link was opened
         element = self.driver.find_element_by_xpath(Register.terms_conditions_verification).is_displayed()
-        if element:
-            print("OK. User can see 'Terms & Conditions' page.")
-        else:
-            sys.exit("ERROR. User cannot see 'Terms & Conditions' page.")
+        assert element, "ERROR. User cannot see 'Terms & Conditions' page."
 
 
 if __name__ == "__main__":

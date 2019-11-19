@@ -48,12 +48,7 @@ class MainPageTest28(unittest.TestCase):
         element2 = wait.until(EC.presence_of_all_elements_located((By.XPATH, MainPage.verify_skincare_2)))
         second_page_products = len(element2)
         all_products = first_page_products + second_page_products
-        if int(number) == all_products:
-            print("OK. The number next to 'Product results: shaving' matches to the number of products displayed.")
-        else:
-            sys.exit(
-                "ERROR. The number next to 'Product results: shaving' doesn't match to the number of products displayed.")
-
+        assert int(number) == all_products, "ERROR. The number next to 'Product results: shaving' doesn't match to the number of products displayed."
 
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
