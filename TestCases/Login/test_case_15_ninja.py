@@ -1,7 +1,6 @@
 import unittest
 import HtmlTestRunner
 from selenium import webdriver
-import time
 from PageObjects.LoginNinja import LoginNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -24,7 +23,6 @@ class LoginTest15Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         login = LoginNinja(cls.driver)
         cls.driver.get(login.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -42,7 +40,6 @@ class LoginTest15Ninja(unittest.TestCase):
         login.set_password(self.password)
         # Click "Login" button
         login.click_login_button()
-        time.sleep(1)
         # Click "Password" link
         login.click_password_link()
         # Enter new password
@@ -75,10 +72,7 @@ class LoginTest15Ninja(unittest.TestCase):
         login.click_login_button()
         # Check if user signed in with the new password, if not => error
         element = self.driver.find_element_by_xpath(LoginNinja.logout_link).is_displayed()
-        if element:
-            print("OK. User changed his password successfully two times.")
-        else:
-            sys.exit("ERROR. User didn't change his password successfully.")
+        assert element, "ERROR. User didn't change his password successfully."
 
 
 if __name__ == "__main__":

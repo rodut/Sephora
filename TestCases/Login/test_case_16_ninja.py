@@ -1,7 +1,6 @@
 import unittest
 import HtmlTestRunner
 from selenium import webdriver
-import time
 from PageObjects.LoginNinja import LoginNinja
 import sys
 sys.path.append("C:/Users/Tudor/PycharmProjects/Sephora")
@@ -20,7 +19,6 @@ class LoginTest16Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         login = LoginNinja(cls.driver)
         cls.driver.get(login.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -40,10 +38,7 @@ class LoginTest16Ninja(unittest.TestCase):
         login.click_login_button()
         # Check if user is not login, if user logged in => error
         element = self.driver.find_element_by_xpath(LoginNinja.warning_message).is_displayed()
-        if element:
-            print("OK. User cannot login with the old password.")
-        else:
-            sys.exit("ERROR. User can login with his old password.")
+        assert element, "ERROR. User can login with his old password."
 
 
 if __name__ == "__main__":

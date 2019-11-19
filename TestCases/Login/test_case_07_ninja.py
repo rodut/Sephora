@@ -39,10 +39,7 @@ class LoginTest07Ninja(unittest.TestCase):
         login.click_login_button()
         # Verify if user cannot login with valid email/pass
         element = self.driver.find_element_by_xpath(LoginNinja.warning_message).is_displayed()
-        if element:
-            print("OK. User cannot login with invalid password.")
-        else:
-            sys.exit("ERROR. User can login with invalid password.")
+        assert element, "ERROR. User can login with invalid password."
 
 
 if __name__ == "__main__":

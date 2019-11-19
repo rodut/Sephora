@@ -1,6 +1,8 @@
 import unittest
 import HtmlTestRunner
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from PageObjects.LoginNinja import LoginNinja
 import sys
@@ -20,13 +22,13 @@ class LoginTest11Ninja(unittest.TestCase):
         login = LoginNinja(cls.driver)
         cls.driver.get(login.url)
         cls.driver.maximize_window()
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
     def test_login_11_ninja(self):
+        wait = WebDriverWait(self.driver, 10)
         login = LoginNinja(self.driver)
         # Click "My Account" link
         login.click_my_account_link()
@@ -40,20 +42,14 @@ class LoginTest11Ninja(unittest.TestCase):
         login.click_login_button()
         # Click "Back Arrow" on browser button (2 times)
         login.windows_back_page()
-        time.sleep(1)
         login.windows_back_page()
-        time.sleep(1)
         # Click "My Account" link
         login.click_my_account_link()
-        time.sleep(1)
         # Click "Login" link
         login.click_login_link()
         # Check if user is logged in, if not -> error (check if Logout link is present)
-        element = self.driver.find_element_by_xpath(LoginNinja.logout_link)
-        if element:
-            print("OK. The user wasn't logged out.")
-        else:
-            sys.exit("ERROR. The user was logged out.")
+        element = wait.until(EC.presence_of_element_located((By.XPATH, LoginNinja.logout_link))).is_displayed()
+        assert element, "ERROR. The user was logged out."
 
 
 if __name__ == "__main__":

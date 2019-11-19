@@ -1,6 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 __author__ = "Chirosca Tudor"
 __email__ = "tudorache@gmail.com"
@@ -30,7 +33,7 @@ class LoginNinja:
         self.url = "http://tutorialsninja.com/demo/index.php?route=common/home"
 
     def click_my_account_link(self):
-        self.driver.find_element_by_xpath(self.my_account_link).click()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.my_account_link))).click()
 
     def click_login_link(self):
         self.driver.find_element_by_xpath(self.login_link).click()
@@ -58,7 +61,7 @@ class LoginNinja:
         self.driver.execute_script("window.history.go(-1)")
 
     def click_edit_account(self):
-        self.driver.find_element_by_xpath(self.edit_account_link).click()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.edit_account_link))).click()
 
     def click_logout(self):
         self.driver.find_element_by_xpath(self.logout_link).click()
@@ -72,7 +75,7 @@ class LoginNinja:
         self.driver.find_element_by_xpath(self.password_id).send_keys(Keys.CONTROL, 'v')
 
     def click_password_link(self):
-        self.driver.find_element_by_xpath(self.password_link).click()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.password_link))).click()
 
     def click_forgotten_password_link(self):
         self.driver.find_element_by_xpath(self.forgotten_password).click()

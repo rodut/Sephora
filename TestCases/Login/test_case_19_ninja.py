@@ -1,6 +1,5 @@
 import unittest
 import HtmlTestRunner
-import time
 from selenium import webdriver
 from PageObjects.LoginNinja import LoginNinja
 import sys
@@ -20,7 +19,6 @@ class LoginTest19Ninja(unittest.TestCase):
         cls.driver.maximize_window()
         login = LoginNinja(cls.driver)
         cls.driver.get(login.url)
-        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
@@ -44,10 +42,7 @@ class LoginTest19Ninja(unittest.TestCase):
         login.click_logout()
         # Check if user was signed out, if not => error
         element = self.driver.find_element_by_xpath(LoginNinja.check_sign_out).is_displayed()
-        if element:
-            print("OK. The user successfully signed out.")
-        else:
-            sys.exit("ERROR. The user didn't sign out.")
+        assert element, "ERROR. The user didn't sign out."
 
 
 if __name__ == "__main__":
